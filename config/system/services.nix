@@ -30,7 +30,7 @@
     package = pkgs.mysql84;
   };
   services.twingate = {
-    enable = false;
+    enable = true;
     package = pkgs.twingate;
   };
   services.power-profiles-daemon.enable = true;

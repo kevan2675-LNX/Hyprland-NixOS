@@ -5,6 +5,9 @@ let
     theLocale theTimezone gitUsername
     theShell theLCVariables theKBDLayout flakeDir
     httpProxy socksProxy firewallPorts useFirewall;
+    gdk = pkgs.google-cloud-sdk.withExtraComponents( with pkgs.google-cloud-sdk.components; [
+      gke-gcloud-auth-plugin
+    ]);
 in {
   imports =
     [
@@ -116,6 +119,7 @@ in {
         android-studio
 	zed-editor
         deno
+        gdk
 	#USER_PKG
       ])
 
@@ -158,6 +162,10 @@ in {
 	postgresql_17
 	vscode
 	prisma
+	screen
+	jq
+	tmux
+	ungoogled-chromium
 	#STABLE_USER
       ]);
     };
