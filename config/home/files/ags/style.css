@@ -2,6 +2,7 @@ window.bar {
     background-color: transparent;
     color: @theme_fg_color;
     transition: all 0.5s ease-out;
+    margin-bottom: .3px;
 }
 
 button {
@@ -28,6 +29,7 @@ label {
   padding: 0px 15px;
   opacity: 0.9;
   margin-top: 0.2px;
+  margin-bottom: 0.2px;
 }
 
 .power-profile:hover {
@@ -58,7 +60,7 @@ label {
   background-color: @theme_bg_color;
   color: @theme_selected_bg_color;
   border-radius: 40px 0px 0px 15px;
-  padding: 0px 1rem 0rem 1rem;
+  padding: 0px .5rem 0rem 1rem;
   opacity: 0.9;
   margin-top: 0.2px;
 }

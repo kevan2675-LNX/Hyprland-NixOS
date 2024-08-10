@@ -39,6 +39,19 @@
     jack.enable = true;
     wireplumber.enable = true;
   };
+  services.resolved = {
+    enable = true;
+    dnssec = "true";
+    dnsovertls = "true";
+    fallbackDns = [ "165.22.52.204" ];
+    extraConfig = ''
+      Domains=~.
+      DNS= 1.1.1.1:853 1.0.0.1:853 2606:4700:4700::1111 2606:4700:4700::1001
+
+      [Proxy]
+      Proxy=socks5://127.0.0.1:1080
+    '';
+  };
   
   hardware.enableAllFirmware = true;
   hardware.pulseaudio.enable = false;

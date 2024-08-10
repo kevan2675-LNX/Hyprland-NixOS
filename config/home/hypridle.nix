@@ -21,13 +21,13 @@ listener {
 }
 
 listener {
-  timeout = 1800                           # 30min
+  timeout = 3600                           # 1hour
   on-timeout = ${pkgs.hyprland}/bin/hyprctl dispatch dpms off
   on-resume = ${pkgs.hyprland}/bin/hyprctl dispatch dpms on
 }
 
 listener {
-  timeout = 3600
+  timeout = 7200                          # 2hours 
   on-timeout = systemctl suspend
 }
 '';

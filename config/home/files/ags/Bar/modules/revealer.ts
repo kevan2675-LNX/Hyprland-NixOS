@@ -21,13 +21,18 @@ export const RevealerButton = () => {
     }
   };
 
+  const showTaskWaybar = () => {
+    Utils.execAsync(['bash', '-c', 'task-waybar'])
+  }
+
   return Widget.Button({
     class_name: "revealerButton",
     setup: (self) =>
       self.hook(revealerState, () => {
         (self.on_clicked = () => handleButtonClick()),
+        (self.on_secondary_click = showTaskWaybar),
           (self.label = revealerState.value.state == true ? ">>>" : "<<<");
-          (self.tooltip_text = revealerState.value.state == true ? "Close" : "Open");
+          (self.tooltip_text = revealerState.value.state == true ? "Close / Menu" : "Open / Menu");
       }),
   });
 };

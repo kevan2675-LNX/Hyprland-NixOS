@@ -6,7 +6,7 @@
 
   # List System Programs
   environment.systemPackages = with pkgs; [
-    wget curl git cmatrix lolcat neofetch htop btop libvirt
+    wget curl git neofetch htop btop libvirt
     polkit_gnome lm_sensors unzip unrar libnotify eza
     v4l-utils ydotool wl-clipboard socat cowsay lsd lshw
     pkg-config meson gnumake ninja go nodejs 

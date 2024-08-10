@@ -27,5 +27,6 @@
     ./cava.nix
     ./vesktop.nix
     ./hypridle.nix
+    ./firefox.nix
   ];
 }

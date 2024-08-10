@@ -5,7 +5,7 @@ let
   hyprplugins = inputs.hyprland-plugins.packages.${pkgs.system};
   inherit (import ../../options.nix) 
     browser cpuType gpuType
-    wallpaperDir borderAnim
+    wallpaperDir borderAnim username
     theKBDLayout terminal curWallPaper
     theSecondKBDLayout gitUsername
     theKBDVariant sdl-videodriver autoWallChange;
@@ -139,6 +139,7 @@ in with lib; {
       #exec-once = swaync
       exec-once = ags
       exec-once = swww img "${curWallPaper}"
+      exec-once = notify-send "Hi ${username} 🍃" "Welcome Back  ʕっ•ᴥ•ʔっ"
       ${if autoWallChange == true then ''
       exec-once = wallsetter
       '' else ''

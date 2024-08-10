@@ -22,6 +22,14 @@ in {
   networking.proxy.httpsProxy = "${httpProxy}";
   networking.proxy.ftpProxy = "${httpProxy}";
 
+  #systemd.globalEnvironment = {
+  #  HTTP_PROXY="${httpProxy}";
+  #  HTTPS_PROXY="${httpProxy}";
+  #  ALL_PROXY="${socksProxy}";
+  #  RSYNC_PROXY="${socksProxy}";
+  #  FTP_PROXY="${socksProxy}";
+  #};
+
   networking.extraHosts = ''
     172.25.161.30  esp-vcenter.mitesp.local
     172.25.161.34  esp-psc.mitesp.local
@@ -119,6 +127,7 @@ in {
       ++
 
       (with pkgs-stable; [
+        qbittorrent-qt5
         xz
         sysstat
         dmidecode
@@ -129,7 +138,6 @@ in {
 	steam-run
 	gef
 	patchelf
-	qbittorrent-qt5
 	scrcpy
 	sqlmap
 	exploitdb
@@ -142,6 +150,7 @@ in {
 	putty
 	anydesk
 	ntfs3g
+	nixpkgs-fmt
 	#STABLE_USER
       ]);
     };
