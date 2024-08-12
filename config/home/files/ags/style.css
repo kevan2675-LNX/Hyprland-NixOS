@@ -1,15 +1,15 @@
 window.bar {
     background-color: transparent;
     color: @theme_fg_color;
-    transition: all 0.5s ease-out;
-    margin-bottom: .3px;
+    transition: all 0.5s ease-in-out;
 }
 
 button {
     min-width: 0;
     padding: 0 0.3rem;
     background-color: transparent;
-    transition: all 0.5s ease-out;
+    transition: all 0.5s ease-in-out;
+    box-shadow: none;
 }
 
 /*button:hover {
@@ -29,7 +29,6 @@ label {
   padding: 0px 15px;
   opacity: 0.9;
   margin-top: 0.2px;
-  margin-bottom: 0.2px;
 }
 
 .power-profile:hover {

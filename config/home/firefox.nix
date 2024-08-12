@@ -308,6 +308,34 @@ body,html{overflow-y: auto}
     "layout.word_select.eat_space_to_next_word" = false;
   };
 
+  searchEngines = {
+    "Brave" = {
+      urls = [{ template = "https://search.brave.com/search?q={searchTerms}"; }];
+      iconUpdateURL = "https://cdn.search.brave.com/serp/v1/static/brand/9b3cd14668935362449eebb1854f575091a1169bf51aba6a8c17b39f64a9d07e-favicon-16x16.png";
+      definedAliases = [ "@br" ];
+    };
+
+    "Nix Packages" = {
+      urls = [{
+        template = "https://search.nixos.org/packages";
+        params = [
+          { name = "type"; value = "packages"; }
+          { name = "query"; value = "{searchTerms}"; }
+        ];
+      }];
+
+      icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+      definedAliases = [ "@np" ];
+    };
+
+    "NixOS Wiki" = {
+      urls = [{ template = "https://wiki.nixos.org/index.php?search={searchTerms}"; }];
+      iconUpdateURL = "https://wiki.nixos.org/favicon.png";
+      updateInterval = 24 * 60 * 60 * 1000; # every day
+      definedAliases = [ "@nw" ];
+    };
+  };
+
 in {
   programs.firefox = {
     enable = true;
@@ -340,7 +368,7 @@ in {
         Search = true;
         TopSites = true;
         SponsoredTopSites = false;
-        Highlights = false;
+        Highlights = true;
         Pocket = false;
         SponsoredPocket = false;
         Snippets = false;
@@ -372,11 +400,6 @@ in {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
           installation_mode = "force_installed";
         };
-
-        "BraveSearchExtension@io.Uvera" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/brave-search/latest.xpi";
-          installation_mode = "force_installed";
-        };
         
         "sponsorBlocker@ajay.app" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
@@ -399,13 +422,28 @@ in {
         id = 0;
         name = "${username}"; 
         isDefault = true;
+        search = {
+          default = "Brave";
+          engines = searchEngines;
+        };
         inherit settings userChrome userContent;
       };
       "${username}-work" = {
         id = 1;
         name = "${username}-work";
-        isDefault = false;
+        search = {
+          default = "Brave";
+          engines = searchEngines;
+        };
         inherit settings userChrome userContent;
+      };
+      "Guest" = {
+        id = 2;
+        name = "Guest";
+        search = {
+          default = "Brave";
+          engines = searchEngines;
+        };
       };
     };
   };

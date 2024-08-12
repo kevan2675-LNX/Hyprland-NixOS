@@ -19,7 +19,7 @@ in {
         "timeout-low": 5,
         "timeout-critical": 0,
         "fit-to-screen": false,
-        "control-center-width": 450,
+        "control-center-width": 400,
         "control-center-height": 600,
         "notification-window-width": 450,
         "keyboard-shortcuts": true,
@@ -39,7 +39,7 @@ in {
             "title": {
                 "text": "Notifications 🍃",
                 "clear-all-button": true,
-                "button-text": "󰆴 Clear All"
+                "button-text": "󰆴"
             },
             "dnd": {
                 "text": "Do Not Disturb"
