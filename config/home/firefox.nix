@@ -424,6 +424,7 @@ in {
         isDefault = true;
         search = {
           default = "Brave";
+          privateDefault = "Brave";
           engines = searchEngines;
         };
         inherit settings userChrome userContent;
@@ -433,6 +434,7 @@ in {
         name = "${username}-work";
         search = {
           default = "Brave";
+          privateDefault = "Brave";
           engines = searchEngines;
         };
         inherit settings userChrome userContent;
@@ -442,6 +444,7 @@ in {
         name = "Guest";
         search = {
           default = "Brave";
+          privateDefault = "Brave";
           engines = searchEngines;
         };
       };
