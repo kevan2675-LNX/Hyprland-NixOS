@@ -4,7 +4,6 @@ let
   hostname = "nixos";
   userHome = "/home/${username}";
   flakeDir = "${userHome}/Lucifers_NIX";
-  waybarStyle = "slickbar"; # simplebar, slickbar, or default
   proxy = true;
   socks = "1080";
   http = "1090";
@@ -15,9 +14,6 @@ in {
   gitUsername = "Arana-Jayavihan";
   gitEmail = "aranajayavihan@gmail.com";
   theme = "apathy";
-  slickbar = if waybarStyle == "slickbar" then true else false;
-  simplebar = if waybarStyle == "simplebar" then true else false;
-  bar-number = true; # Enable / Disable Workspace Numbers In Waybar
   borderAnim = true;
   browser = "firefox";
   autoWallChange = false;
@@ -34,7 +30,6 @@ in {
   terminal = "kitty"; # This sets the terminal that is used by the hyprland terminal keybinding
 
   # System Settings
-  clock24h = false;
   theLocale = "en_US.UTF-8";
   theKBDLayout = "us";
   theSecondKBDLayout = "de";
