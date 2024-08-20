@@ -168,12 +168,12 @@ in with lib; {
       bind = ${modifier},D,exec,noproxyrun vesktop             #Discord
       bind = ${modifier},O,exec,obs                 #OBS
       bind = ${modifier},T,exec,thunar              #Thunar
-      bind = ${modifier},M,exec, spotify             #Spotify
+      bind = ${modifier},M,exec,spotify             #Spotify
       bind = ${modifier}SHIFT,K,exec,scrcpy -m720 -b2M #Launch scrcpy cast
       bind = ${modifier}SHIFT,L,exec,swaylock       #Lock Screen
       bind = ${modifier}SHIFT,O,exec,hyprpicker -a -f hex     #Launch Color Picker
       bind = ${modifier}SHIFT,A,exec,waydroid show-full-ui    #Launch Waydroid
-      bind = ${modifier}SHIFT,E,exec,VirtualBoxVM --startvm Windows10 --scaled    #Launch Windows
+      bind = ${modifier}SHIFT,E,exec,VirtualBoxVM --startvm Windows11 --scaled    #Launch Windows
       bind = ${modifier}SHIFT,N,exec,${browser} https://search.nixos.org/    #Open NixOS Search
       bind = ${modifier}SHIFT,X,exec,wlogout    #Show Power Menu
       bind = ${modifier}SHIFT,T,exec,noproxyrun "flatpak run com.github.IsmaelMartinez.teams_for_linux" #Launch Teams

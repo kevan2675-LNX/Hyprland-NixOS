@@ -24,7 +24,7 @@ in
       ncsVisualizer
     ];
 
-    theme = spicePkgs.themes.dribbblish;
+    theme = spicePkgs.themes.catppuccin;
     colorScheme = "custom";
     customColorScheme = {
       text = "${palette.base0B}";

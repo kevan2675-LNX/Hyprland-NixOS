@@ -30,6 +30,9 @@ function changeTheme {
   sed -i "s#curWallPaper = .*;#curWallPaper = $1;#g" $flakeDir/options.nix
   sed -i "s/useWallColors = false;/useWallColors = $THEME;/g" $flakeDir/options.nix
   autopalette
+  rm /home/lucifer/.mozilla/firefox/lucifer/search.json.mozlz4.backup
+  rm /home/lucifer/.mozilla/firefox/Guest/search.json.mozlz4.backup
+  rm /home/lucifer/.mozilla/firefox/lucifer-work/search.json.mozlz4.backup
   sudo nixos-rebuild switch --flake "$flakeDir"
   ${pkgs.swaynotificationcenter}/bin/swaync-client -rs
   ags -q

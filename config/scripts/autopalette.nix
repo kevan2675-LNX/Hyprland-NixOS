@@ -14,7 +14,7 @@ imageWidth=$(exiftool $curWallPaper | grep "Image Width" | cut -d ':' -f2 | xarg
 imageHeight=$(exiftool $curWallPaper | grep "Image Height" | cut -d ':' -f2 | xargs)
 
 # Colors Extraction
-schemer2 -width $imageWidth -height $imageHeight -format img::colors -in $curWallPaper -out $colorsPath
+schemer2 -width $imageWidth -height $imageHeight -format img::colors -in $curWallPaper -out $colorsPath -threshold 70
 
 # Palette Generator Python Script
 ${pkgs.python3}/bin/python3 <<EOF

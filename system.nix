@@ -178,7 +178,8 @@ in {
         parted
         pulseaudioFull
         pavucontrol
-	pulseeffects-legacy
+        pulseeffects-legacy
+        alsa-utils
 	#STABLE_SYSTEM
       ]);
  
