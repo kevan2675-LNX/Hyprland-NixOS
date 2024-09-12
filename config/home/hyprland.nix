@@ -41,6 +41,10 @@ in with lib; {
       windowrulev2 = opacity 1.0 override 1.0 override,initialClass:^(.*org.kde.kdenlive.*)$ 
       windowrulev2 = opacity 1.0 override 1.0 override,initialClass:^(.*Waydroid.*)$ 
 
+      # Workspace Rules
+      workspace = 8, monitor:HDMI-A-1
+      workspace = 9, monitor:HDMI-A-1
+
       general {
         gaps_in = 6
         gaps_out = 6
@@ -135,9 +139,9 @@ in with lib; {
       exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once = swww init
       exec-once = hypridle
-      #exec-once = waybar
-      #exec-once = swaync
+      exec-once = swaync
       exec-once = ags
+      exec-once = amixer -c 0 set PCM 100% unmute
       exec-once = swww img "${curWallPaper}"
       exec-once = notify-send "Hi ${username} 🍃" "Welcome Back  ʕっ•ᴥ•ʔっ"
       ${if autoWallChange == true then ''
@@ -146,6 +150,12 @@ in with lib; {
       ''}    
       exec-once = nm-applet --indicator
 
+      # Custom Startup Apps
+      exec-once = hyprctl dispatch exec "[workspace 9 silent;]" -- kitty /home/lucifer/Projects/TCP-Over-SSL-Tunnel/start.sh
+      exec-once = hyprctl dispatch exec "[workspace 9 silent;]" -- pulseeffects
+      exec-once = hyprctl dispatch exec "[workspace 9 silent;]" -- kitty alsamixer
+      exec-once = hyprctl dispatch exec "[workspace 8 silent;]" -- spotify
+
       dwindle {
         pseudotile = true
         preserve_split = true
@@ -153,6 +163,8 @@ in with lib; {
       master {
         new_status = master
       }
+
+      # Key Bindings
       bind = ${modifier},Return,exec,${terminal}          #Launch Terminal
       bind = ${modifier}SHIFT,B,exec,list-hypr-bindings   #List Hyprland Binds
       bind = ${modifier}SHIFT,Return,exec,rofi-launcher   #Rofi App Launcher

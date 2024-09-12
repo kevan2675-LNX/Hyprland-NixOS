@@ -1,6 +1,10 @@
 { pkgs, flakeDir, ... }:
 
 pkgs.writeShellScriptBin "rateChanger" ''
+rm /home/lucifer/.mozilla/firefox/lucifer/search.json.mozlz4.backup
+rm  /home/lucifer/.mozilla/firefox/Guest/search.json.mozlz4.backup
+rm  /home/lucifer/.mozilla/firefox/lucifer-work/search.json.mozlz4.backup
+
 flakeDir=${flakeDir}
 rate=$1
 regex='^[0-9]+$'

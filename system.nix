@@ -147,8 +147,8 @@ in {
 	spice-gtk
 	cbonsai
 	peaclock
-	putty
-	anydesk
+        putty
+        anydesk
 	ntfs3g
 	nixpkgs-fmt
 	#STABLE_USER

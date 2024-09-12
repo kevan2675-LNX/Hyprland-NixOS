@@ -25,6 +25,10 @@
   services.upower.enable = true;
   services.thermald.enable = false;
   services.hypridle.enable = true;
+  services.mysql = {
+    enable = false;
+    package = pkgs.mysql84;
+  };
   services.power-profiles-daemon.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.gnome.gnome-remote-desktop.enable = true;
