@@ -30,10 +30,14 @@
       rev = "c0dd587b9f1f871a05cd71bda67ad2f2759d9d45";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    firefox = {
+      url = "github:nix-community/flake-firefox-nightly";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = inputs@{ nixpkgs-stable, nixpkgs, home-manager, impermanence, nix-colors, spicetify-nix, ... }:
+  outputs = inputs@{ nixpkgs-stable, nixpkgs, home-manager, impermanence, nix-colors, spicetify-nix, firefox, ... }:
   let
     system = "x86_64-linux";
     inherit (import ./options.nix) username hostname;
@@ -64,6 +68,7 @@
           inherit hostname;
           inherit pkgs-stable;
           inherit nixColorsContrib;
+          inherit firefox;
         };
 	modules = [ 
           ./system.nix
@@ -75,6 +80,7 @@
               inherit pkgs-stable;
               inherit nixColorsContrib;
               inherit spicetify-nix;
+              inherit firefox;
             };
 	    home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

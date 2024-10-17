@@ -1,4 +1,4 @@
-{ pkgs, pkgs-stable, config, lib, ... }:
+{ pkgs, firefox, ... }:
 let
   inherit (import ../../options.nix) username;
   userChrome = ''
@@ -30,7 +30,7 @@ let
     --uc-page-action-margin: 7px;
 }
 
-/* animation and effect */
+/* animation and effect 
 #nav-bar:not([customizing]) {
   visibility: visible;
   margin-top: -40px;
@@ -54,6 +54,8 @@ let
   opacity: 100;
   margin-bottom: -0.2px;
 }
+*/
+
 #PersonalToolbar {
   margin-top: 0px;
 }
@@ -339,7 +341,7 @@ body,html{overflow-y: auto}
 in {
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox;
+    package = firefox.packages.${pkgs.system}.firefox-nightly-bin;
     policies = {
       HttpsOnlyMode = "enabled";
       SSLVersionMin = "tls1.2";
