@@ -29,8 +29,8 @@ let
     --uc-status-panel-spacing: 0px;
     --uc-page-action-margin: 7px;
 }
-
-/* animation and effect 
+/*
+animation and effect 
 #nav-bar:not([customizing]) {
   visibility: visible;
   margin-top: -40px;

@@ -42,8 +42,17 @@ in with lib; {
       windowrulev2 = opacity 1.0 override 1.0 override,initialClass:^(.*Waydroid.*)$ 
 
       # Workspace Rules
+      workspace = 2, monitor:HDMI-A-1
+      workspace = 4, monitor:HDMI-A-1
+      workspace = 6, monitor:HDMI-A-1
       workspace = 8, monitor:HDMI-A-1
-      workspace = 9, monitor:HDMI-A-1
+      workspace = 10, monitor:HDMI-A-1
+
+      workspace = 1, monitor:eDP-1
+      workspace = 3, monitor:eDP-1
+      workspace = 5, monitor:eDP-1
+      workspace = 7, monitor:eDP-1
+      workspace = 9, monitor:eDP-1
 
       general {
         gaps_in = 6
@@ -142,6 +151,7 @@ in with lib; {
       exec-once = swaync
       exec-once = ags
       exec-once = amixer -c 0 set PCM 100% unmute
+      exec-once = amixer -c 1 set PCM 100% unmute
       exec-once = swww img "${curWallPaper}"
       exec-once = notify-send "Hi ${username} 🍃" "Welcome Back  ʕっ•ᴥ•ʔっ"
       ${if autoWallChange == true then ''
@@ -151,10 +161,11 @@ in with lib; {
       exec-once = nm-applet --indicator
 
       # Custom Startup Apps
-      exec-once = hyprctl dispatch exec "[workspace 9 silent;]" -- kitty /home/lucifer/Projects/TCP-Over-SSL-Tunnel/start.sh
-      exec-once = hyprctl dispatch exec "[workspace 9 silent;]" -- pulseeffects
-      exec-once = hyprctl dispatch exec "[workspace 9 silent;]" -- kitty alsamixer
-      exec-once = hyprctl dispatch exec "[workspace 8 silent;]" -- spotify
+      exec-once = hyprctl dispatch exec "[workspace 10 silent;]" -- kitty /home/lucifer/Projects/TCP-Over-SSL-Tunnel/start.sh
+      exec-once = hyprctl dispatch exec "[workspace 10 silent;]" -- pulseeffects
+      exec-once = hyprctl dispatch exec "[workspace 10 silent;]" -- kitty alsamixer
+      exec-once = hyprctl dispatch exec "[workspace 9 silent;]" -- spotify
+      exec-once = hyprctl dispatch exec "[workspace 9 silent;]" -- kitty cava
 
       dwindle {
         pseudotile = true
