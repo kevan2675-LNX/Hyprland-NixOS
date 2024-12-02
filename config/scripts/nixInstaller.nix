@@ -1,6 +1,10 @@
 { pkgs, flakeDir }:
 
 pkgs.writeShellScriptBin "nixInstall" ''
+rm /home/lucifer/.mozilla/firefox/lucifer/search.json.mozlz4.backup
+rm  /home/lucifer/.mozilla/firefox/Guest/search.json.mozlz4.backup
+rm  /home/lucifer/.mozilla/firefox/lucifer-work/search.json.mozlz4.backup
+
 printHelp () {
   printf "
 This is a simple package installer script for my NixOS flake.

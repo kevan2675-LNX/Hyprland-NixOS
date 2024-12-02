@@ -17,6 +17,9 @@ in lib.mkIf (wezterm == false && alacritty == false
       window_padding_width = 4;
       confirm_os_window_close = 0;
       background_opacity = "1";
+      repaint_delay = 1;
+      input_delay = 0;
+      sync_to_monitor = "no";
     };
     extraConfig = ''
       foreground #${palette.base05}

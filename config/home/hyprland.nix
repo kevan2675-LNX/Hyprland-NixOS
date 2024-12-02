@@ -162,7 +162,7 @@ in with lib; {
 
       # Custom Startup Apps
       exec-once = hyprctl dispatch exec "[workspace 10 silent;]" -- kitty /home/lucifer/Projects/TCP-Over-SSL-Tunnel/start.sh
-      exec-once = hyprctl dispatch exec "[workspace 10 silent;]" -- pulseeffects
+      exec-once = hyprctl dispatch exec "[workspace 10 silent;]" -- pulseeffects && pulseeffects -l test2
       exec-once = hyprctl dispatch exec "[workspace 10 silent;]" -- kitty alsamixer
       exec-once = hyprctl dispatch exec "[workspace 9 silent;]" -- spotify
       exec-once = hyprctl dispatch exec "[workspace 9 silent;]" -- kitty cava
@@ -192,6 +192,7 @@ in with lib; {
       bind = ${modifier},O,exec,obs                 #OBS
       bind = ${modifier},T,exec,thunar              #Thunar
       bind = ${modifier},M,exec,spotify             #Spotify
+      bind = ${modifier},B,exec,noproxyrun brave    #Brave - NOPROXY
       bind = ${modifier}SHIFT,K,exec,scrcpy -m720 -b2M #Launch scrcpy cast
       bind = ${modifier}SHIFT,L,exec,swaylock       #Lock Screen
       bind = ${modifier}SHIFT,O,exec,hyprpicker -a -f hex     #Launch Color Picker
@@ -204,6 +205,7 @@ in with lib; {
       bind = ${modifier}SHIFT,S,exec,com.github.rajsolai.textsnatcher #Launch OCR Clipboard
       bind = ${modifier},G,exec,${browser} https://chat.openai.com/    #Open ChatGPT
       bind = ${modifier},Q,killactive,    #Kill Active Window
+      bind = ${modifier}SHIFT,Q,exec,kill -9 $(ps -eaf | grep firefox-nightly | head -1 | cut -d "r" -f 2 | xargs | cut -d " " -f 1 | xargs) #Kill Firefox
       bind = ${modifier},P,pseudo,        #Pseudo Tiling
       bind = ${modifier}SHIFT,I,togglesplit,      #Toggle Split Direction
       bind = ${modifier},F,fullscreen,            #Toggle Fullscreen
@@ -244,7 +246,8 @@ in with lib; {
       bind = ${modifier},mouse_up,workspace, e-1        #Move To Previous Workspace
       bindm = ${modifier},mouse:272,movewindow          #Move Window
       bindm = ${modifier},mouse:273,resizewindow        #Resize Window
-      bind = ${modifier}SHIFT,R,exec,swaync-client -rs  #Reload SwayNC Styling 
+      bind = ${modifier}SHIFT,R,exec,swaync-client -rs  #Reload SwayNC Styling
+      bind = ${modifier},F12,exec,ags -q; ags &
       bind = ALT,Tab,cyclenext                          #Cycle Windows
       bind = ALT,Tab,bringactivetotop                   #Bring Active Window To Front
       bind = ,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+

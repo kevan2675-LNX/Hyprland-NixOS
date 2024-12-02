@@ -29,6 +29,10 @@
     enable = false;
     package = pkgs.mysql84;
   };
+  services.twingate = {
+    enable = true;
+    package = pkgs.twingate;
+  };
   services.power-profiles-daemon.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.gnome.gnome-remote-desktop.enable = true;
@@ -50,10 +54,7 @@
     fallbackDns = [ "165.22.52.204" ];
     extraConfig = ''
       Domains=~.
-      DNS= 1.1.1.1:853 1.0.0.1:853 2606:4700:4700::1111 2606:4700:4700::1001
-
-      [Proxy]
-      Proxy=socks5://127.0.0.1:1080
+      DNS=1.1.1.1
     '';
   };
   
