@@ -20,8 +20,8 @@ in with lib; {
     extraConfig = let
       modifier = "SUPER";
     in concatStrings [ ''
-      monitor=eDP-1,1920x1080,0x0,1,bitdepth,10
-      monitor=HDMI-A-1,1920x1080@144,auto,1,bitdepth,10
+      monitor=eDP-1,1920x1080,0x0,1
+      monitor=HDMI-A-1,1920x1080@144,auto,1
 
       windowrule = fullscreen, ^(wlogout)$
       windowrule = animation fade,^(wlogout)$
@@ -125,16 +125,18 @@ in with lib; {
       }
       decoration {
         rounding = 10
-        drop_shadow = true
         fullscreen_opacity = 1
-        shadow_render_power = 3
-        shadow_range = 6
         blur {
             enabled = true
             size = 3
             passes = 3
             new_optimizations = on
             ignore_opacity = on
+        }
+        shadow {
+            enabled = true
+            render_power = 4
+            range = 4
         }
       }
       plugin {

@@ -4,14 +4,14 @@ let
   libxml2 = pkgs.libxml2;
 in
 {
-  schemer = pkgs.buildGoPackage rec {
+  schemer = pkgs.buildGoModule rec {
     pname = "schemer2";
     version = "2";
     vendorHash = null;
-    goPackagePath = "https://github.com/thefryscorer/schemer2"; 
+     
     src = fetchgit {
-      url = "https://github.com/thefryscorer/schemer2";
-      hash = "sha256-EKjVz4NkxtxqGissFwlzUahFut9UAxS8icxx3V7aNnw=";
+      url = "https://github.com/Arana-Jayavihan/schemer2";
+      hash = "sha256-Zo/bjBTHYAsGtJAi20ywwCYdqTPzBQ6ypK4w3uV00aE=";
     };
     buildInputs = [
       libvirt

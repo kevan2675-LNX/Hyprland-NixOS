@@ -21,9 +21,7 @@ in {
     rustup
     pavucontrol
     tree
-    font-awesome
     swaylock-effects
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 
     # Import Scripts
     (import ./../scripts/emopicker9000.nix { 

@@ -27,7 +27,7 @@ else
 fi
 
 function changeTheme { 
-  sed -i "s#curWallPaper = .*;#curWallPaper = $1;#g" $flakeDir/options.nix
+  sed -i "s#curWallPaper = .*;#curWallPaper = \"$1\";#g" $flakeDir/options.nix
   sed -i "s/useWallColors = false;/useWallColors = $THEME;/g" $flakeDir/options.nix
   autopalette
   rm /home/lucifer/.mozilla/firefox/lucifer/search.json.mozlz4.backup
@@ -87,7 +87,7 @@ fi
 if [ "$WALLPAPER" ]; then
     wall=$(ls "$wallpaperDir" | grep "wall$WALLPAPER.*")
     wallPath=$(realpath "$wallpaperDir/$wall")
-    sed -i "s#curWallPaper = .*;#curWallPaper = $wallPath;#g" $flakeDir/options.nix
+    sed -i "s#curWallPaper = .*;#curWallPaper = \"$wallPath\";#g" $flakeDir/options.nix
     ${pkgs.swww}/bin/swww img "$wallpaperDir/$wall"
 else
     echo "Use Wallpaper theme set to false"

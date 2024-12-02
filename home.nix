@@ -5,6 +5,7 @@ let
 
   inherit (import ./config/home/files/autopalette/custom.nix) customPalette;
 in {
+  #wayland.windowManager.hyprland.systemd.variables = ["--all"];
   # Home Manager Settings
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
@@ -35,7 +36,7 @@ in {
     extraPackages = with pkgs; [
       bun
       gtksourceview
-      webkitgtk
+      webkitgtk_6_0
       accountsservice
     ];
   };

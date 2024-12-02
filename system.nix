@@ -68,8 +68,7 @@ in {
       extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "audio" "pulse-access" "qemu-libvirtd" "kvm" ];
       shell = pkgs.${theShell};
       ignoreShellProgramCheck = true;
-      packages = (with pkgs; [
-        taskwarrior3 
+      packages = (with pkgs; [ 
         networkmanager-fortisslvpn
 	bun
 	go-ethereum
@@ -114,11 +113,10 @@ in {
 	tcptraceroute
 	hyprpicker
 	john
-        cava
         dbeaver-bin
         android-studio
 	zed-editor
-	deno
+        deno
 	#USER_PKG
       ])
 
@@ -152,6 +150,7 @@ in {
 	csvlens
 	postman
 	marktext
+	cava
 	#STABLE_USER
       ]);
     };
@@ -183,6 +182,18 @@ in {
         alsa-utils
 	#STABLE_SYSTEM
       ]);
+
+      fonts = {
+        enableDefaultPackages = true;
+        packages = with pkgs; [
+          ubuntu_font_family
+          nerd-fonts.jetbrains-mono
+          font-awesome
+        ];
+        fontDir = {
+          enable = true;
+        };
+      };
  
   environment.etc."ppp/options".text = "ipcp-accept-remote";
 

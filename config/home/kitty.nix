@@ -9,9 +9,9 @@ in lib.mkIf (wezterm == false && alacritty == false
   programs.kitty = {
     enable = true;
     package = pkgs.kitty;
-    font.name = "JetBrainsMono Nerd Font";
-    font.size = 12;
     settings = {
+      font_family = "JetBrainsMono Nerd Font";
+      font_size = 12;
       scrollback_lines = 10000;
       wheel_scroll_min_lines = 1;
       window_padding_width = 4;
