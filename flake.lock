@@ -117,15 +117,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1730337189,
-        "narHash": "sha256-E0n+yo+9Bswv6oKc7kmpf2mZUp8Hoxa1uffRLEFvHqY=",
-        "rev": "5050ea18e1c329e158533a5e10dd0ab5289e557d",
-        "revCount": 7382,
+        "lastModified": 1733159850,
+        "narHash": "sha256-IrFkgBWFzzujwG4gt4iXj2ncx4BH3Yc4M5VdwN/Y/Ss=",
+        "ref": "refs/heads/master",
+        "rev": "d20be2e9c1b201e4253e79a200f0a2ed7fc27441",
+        "revCount": 7461,
         "type": "git",
         "url": "https://github.com/nix-community/flake-firefox-nightly.git"
       },
       "original": {
-        "rev": "5050ea18e1c329e158533a5e10dd0ab5289e557d",
         "type": "git",
         "url": "https://github.com/nix-community/flake-firefox-nightly.git"
       }
@@ -870,13 +870,13 @@
       "locked": {
         "lastModified": 1730372195,
         "narHash": "sha256-grHHd5N0uzr5PX2BMGgWO+AIVCxMvsb1ce1KqGGTjpQ=",
+        "ref": "refs/heads/master",
         "rev": "ade5f865a196b4b921dd953f505b0a66b658bc1d",
         "revCount": 696,
         "type": "git",
         "url": "https://github.com/Arana-Jayavihan/spicetify-nix.git"
       },
       "original": {
-        "rev": "ade5f865a196b4b921dd953f505b0a66b658bc1d",
         "type": "git",
         "url": "https://github.com/Arana-Jayavihan/spicetify-nix.git"
       }

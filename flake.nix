@@ -27,13 +27,13 @@
     spicetify-nix = {
       type = "git";
       url = "https://github.com/Arana-Jayavihan/spicetify-nix.git";
-      rev = "ade5f865a196b4b921dd953f505b0a66b658bc1d";
+      #rev = "ade5f865a196b4b921dd953f505b0a66b658bc1d";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     firefox = {
       type = "git";
       url = "https://github.com/nix-community/flake-firefox-nightly.git";
-      rev = "5050ea18e1c329e158533a5e10dd0ab5289e557d";
+      #rev = "d20be2e9c1b201e4253e79a200f0a2ed7fc27441";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     impermanence.url = "github:nix-community/impermanence";
