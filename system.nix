@@ -31,11 +31,7 @@ in {
   #};
 
   networking.extraHosts = ''
-    172.25.161.30  esp-vcenter.mitesp.local
-    172.25.161.34  esp-psc.mitesp.local
     165.22.52.204  simple-web.me
-    192.168.100.130 mitesp-hive.local
-    172.23.1.90 reap.helaclothing.com
   '';
 
   #Firewall
@@ -129,7 +125,7 @@ in {
       ++
 
       (with pkgs-stable; [
-        qbittorrent-qt5
+        qbittorrent
         xz
         sysstat
         dmidecode
