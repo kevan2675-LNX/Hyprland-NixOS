@@ -179,24 +179,29 @@ in with lib; {
 
       # Key Bindings
       bind = ${modifier},Return,exec,${terminal}          #Launch Terminal
-      bind = ${modifier}SHIFT,B,exec,list-hypr-bindings   #List Hyprland Binds
-      bind = ${modifier}SHIFT,Return,exec,rofi-launcher   #Rofi App Launcher
       bind = ${modifier},F1, exec, gamemode               #Toggle Game Mode
-      bind = ${modifier}SHIFT,W,exec,wallSelector         #Simple Wallpaper Selector
-      ${if browser == "google-chrome" then ''
+      ${if browser == "google-chrome" then ''             #Launch Browser
 	bind = ${modifier},W,exec,google-chrome-stable
       '' else ''
 	bind = ${modifier},W,exec,${browser}
       ''}
-      bind = ${modifier},E,exec,emopicker9000       #Emoji Picker
-      bindl = ${modifier},S,exec,screenshootin       #Take Screenshot
-      bind = ${modifier},D,exec,noproxyrun vesktop             #Discord
-      bind = ${modifier},O,exec,obs                 #OBS
-      bind = ${modifier},T,exec,thunar              #Thunar
-      bind = ${modifier},M,exec,spotify             #Spotify
-      bind = ${modifier},B,exec,noproxyrun brave    #Brave - NOPROXY
-      bind = ${modifier}SHIFT,K,exec,scrcpy -m720 -b2M #Launch scrcpy cast
-      bind = ${modifier}SHIFT,L,exec,swaylock       #Lock Screen
+      bind = ${modifier},E,exec,emopicker9000             #Emoji Picker
+      bindl = ${modifier},S,exec,screenshootin            #Take Screenshot
+      bind = ${modifier},D,exec,noproxyrun vesktop        #Discord
+      bind = ${modifier},O,exec,obs                       #OBS
+      bind = ${modifier},T,exec,thunar                    #Thunar
+      bind = ${modifier},M,exec,spotify                   #Spotify
+      bind = ${modifier},B,exec,noproxyrun brave          #Brave - NOPROXY
+      bind = ${modifier},G,exec,${browser} https://chat.openai.com/    #Open ChatGPT
+      bind = ${modifier},P,pseudo,                        #Pseudo Tiling
+      bind = ${modifier},F,fullscreen,                    #Toggle Fullscreen
+      bind = ${modifier},Q,killactive,                    #Kill Active Window
+      bind = ${modifier}SHIFT,R,exec,reloadShell          #Reload Shell
+      bind = ${modifier}SHIFT,W,exec,wallSelector         #Simple Wallpaper Selector
+      bind = ${modifier}SHIFT,B,exec,list-hypr-bindings   #List Hyprland Binds
+      bind = ${modifier}SHIFT,Return,exec,rofi-launcher   #Rofi App Launcher
+      bind = ${modifier}SHIFT,K,exec,scrcpy -m720 -b2M    #Launch scrcpy cast
+      bind = ${modifier}SHIFT,L,exec,swaylock             #Lock Screen
       bind = ${modifier}SHIFT,O,exec,hyprpicker -a -f hex     #Launch Color Picker
       bind = ${modifier}SHIFT,A,exec,waydroid show-full-ui    #Launch Waydroid
       bind = ${modifier}SHIFT,E,exec,VirtualBoxVM --startvm Windows11 --scaled    #Launch Windows
@@ -205,12 +210,8 @@ in with lib; {
       bind = ${modifier}SHIFT,T,exec,noproxyrun "flatpak run com.github.IsmaelMartinez.teams_for_linux" #Launch Teams
       bind = ${modifier}SHIFT,G,exec,${browser} https://github.com/${gitUsername}/  #Open GitHub
       bind = ${modifier}SHIFT,S,exec,com.github.rajsolai.textsnatcher #Launch OCR Clipboard
-      bind = ${modifier},G,exec,${browser} https://chat.openai.com/    #Open ChatGPT
-      bind = ${modifier},Q,killactive,    #Kill Active Window
-      bind = ${modifier}SHIFT,Q,exec,kill -9 $(ps -eaf | grep firefox-nightly | head -1 | cut -d "r" -f 2 | xargs | cut -d " " -f 1 | xargs) #Kill Firefox
-      bind = ${modifier},P,pseudo,        #Pseudo Tiling
+      bind = ${modifier}SHIFT,Q,exec,kill -9 $(ps -eaf | grep firefox-nightly | head -1 | cut -d "r" -f 2 | xargs | cut -d " " -f 1 | xargs) #Kill Firefox 
       bind = ${modifier}SHIFT,I,togglesplit,      #Toggle Split Direction
-      bind = ${modifier},F,fullscreen,            #Toggle Fullscreen
       bind = ${modifier}SHIFT,F,togglefloating,   #Toggle Floating Window
       bind = ${modifier}SHIFT,left,movewindow,l   #Move Window Left
       bind = ${modifier}SHIFT,right,movewindow,r  #Move Window Right
@@ -248,8 +249,6 @@ in with lib; {
       bind = ${modifier},mouse_up,workspace, e-1        #Move To Previous Workspace
       bindm = ${modifier},mouse:272,movewindow          #Move Window
       bindm = ${modifier},mouse:273,resizewindow        #Resize Window
-      bind = ${modifier}SHIFT,R,exec,swaync-client -rs  #Reload SwayNC Styling
-      bind = ${modifier},F12,exec,ags -q; ags &
       bind = ALT,Tab,cyclenext                          #Cycle Windows
       bind = ALT,Tab,bringactivetotop                   #Bring Active Window To Front
       bind = ,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+

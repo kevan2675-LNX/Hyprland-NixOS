@@ -27,7 +27,7 @@
     spicetify-nix = {
       type = "git";
       url = "https://github.com/Arana-Jayavihan/spicetify-nix.git";
-      #rev = "ade5f865a196b4b921dd953f505b0a66b658bc1d";
+      rev = "834c8f9bb8a7b63ba242f9ce0db81708c620f2bc";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     firefox = {

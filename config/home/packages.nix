@@ -105,6 +105,9 @@ in {
     (import ./../scripts/gameMode.nix {
       inherit pkgs;
     })
+    (import ./../scripts/reloadShell.nix {
+      inherit pkgs;
+    })
   ];
 
   programs.gh.enable = true;
