@@ -151,6 +151,7 @@ in {
 	postman
 	marktext
 	cava
+	zoxide
 	#STABLE_USER
       ]);
     };

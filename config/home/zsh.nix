@@ -57,7 +57,7 @@ lib.mkIf (theShell == "zsh") {
     #];
     oh-my-zsh = {
       enable = true;
-      plugins = [ "extract" "systemd" "starship" "kitty" "copybuffer" "battery" ];
+      plugins = [ "extract" "systemd" "starship" "kitty" "copybuffer" "zoxide" ];
       #theme = "robbyrussell";
     };
     shellAliases = {
