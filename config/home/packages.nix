@@ -108,6 +108,9 @@ in {
     (import ./../scripts/reloadShell.nix {
       inherit pkgs;
     })
+    (import ./../scripts/usbDAC.nix {
+      inherit pkgs;
+    })
   ];
 
   programs.gh.enable = true;

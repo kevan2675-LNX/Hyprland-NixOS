@@ -183,18 +183,21 @@ in {
 	#STABLE_SYSTEM
       ]);
 
-      fonts = {
-        enableDefaultPackages = true;
-        packages = with pkgs; [
-          ubuntu_font_family
-          nerd-fonts.jetbrains-mono
-          font-awesome
-        ];
-        fontDir = {
-          enable = true;
-        };
-      };
- 
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      ubuntu_font_family
+      nerd-fonts.jetbrains-mono
+      font-awesome
+      noto-fonts-color-emoji
+      material-icons
+    ];
+    fontDir = {
+      enable = true;
+    };
+  };
+
+  environment.shells = with pkgs; [ zsh ];
   environment.etc."ppp/options".text = "ipcp-accept-remote";
 
   virtualisation.docker.enable = true;

@@ -57,6 +57,12 @@
       DNS=1.1.1.1
     '';
   };
+  services.udev = {
+    enable = true;
+    extraRules = ''
+      ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="0495", ATTR{idProduct}=="3042", RUN+="/bin/sh -c '/etc/profiles/per-user/lucifer/bin/usbDAC'"
+    '';
+  };
   
   hardware.enableAllFirmware = true;
   hardware.pulseaudio.enable = false;

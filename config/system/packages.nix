@@ -7,11 +7,10 @@
   # List System Programs
   environment.systemPackages = with pkgs; [
     wget curl git neofetch htop btop libvirt
-    polkit_gnome lm_sensors unzip unrar libnotify eza
-    v4l-utils ydotool wl-clipboard socat cowsay lsd lshw
+    polkit_gnome lm_sensors unzip unrar libnotify
+    v4l-utils ydotool wl-clipboard socat lsd lshw
     pkg-config meson gnumake ninja go nodejs 
-    noto-fonts-color-emoji material-icons brightnessctl
-    toybox virt-viewer swappy ripgrep appimage-run 
+    brightnessctl toybox virt-viewer swappy ripgrep appimage-run 
     networkmanagerapplet yad playerctl nh fastfetch libcec
   ];
 
@@ -37,6 +36,9 @@
         thunar-archive-plugin
         thunar-media-tags-plugin
       ];
+    };
+    yazi = {
+      enable = true;
     };
   };
 

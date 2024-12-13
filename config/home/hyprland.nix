@@ -149,12 +149,12 @@ in with lib; {
       exec-once = dbus-update-activation-environment --systemd --all
       exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once = swww init
+      exec-once = swww img "${curWallPaper}"
       exec-once = hypridle
       exec-once = swaync
       exec-once = ags
       exec-once = amixer -c 0 set PCM 100% unmute
-      exec-once = amixer -c 1 set PCM 100% unmute
-      exec-once = swww img "${curWallPaper}"
+      exec-once = amixer -c 1 set PCM 100% unmute 
       exec-once = notify-send "Hi ${username} 🍃" "Welcome Back  ʕっ•ᴥ•ʔっ"
       ${if autoWallChange == true then ''
       exec-once = wallsetter
@@ -164,11 +164,12 @@ in with lib; {
 
       # Custom Startup Apps
       exec-once = hyprctl dispatch exec "[workspace 10 silent;]" -- kitty /home/lucifer/Projects/TCP-Over-SSL-Tunnel/start.sh
-      exec-once = hyprctl dispatch exec "[workspace 10 silent;]" -- pulseeffects && pulseeffects -l test2
-      exec-once = hyprctl dispatch exec "[workspace 10 silent;]" -- kitty alsamixer
+      exec-once = hyprctl dispatch exec "[workspace 10 silent;]" -- pulseeffects
       exec-once = hyprctl dispatch exec "[workspace 9 silent;]" -- spotify
       exec-once = hyprctl dispatch exec "[workspace 9 silent;]" -- kitty cava
 
+      exec-once = pulseeffects -l Lucifer
+      
       dwindle {
         pseudotile = true
         preserve_split = true
@@ -189,7 +190,7 @@ in with lib; {
       bindl = ${modifier},S,exec,screenshootin            #Take Screenshot
       bind = ${modifier},D,exec,noproxyrun vesktop        #Discord
       bind = ${modifier},O,exec,obs                       #OBS
-      bind = ${modifier},T,exec,thunar                    #Thunar
+      bind = ${modifier},T,exec,kitty yazi                      #Yazi
       bind = ${modifier},M,exec,spotify                   #Spotify
       bind = ${modifier},B,exec,noproxyrun brave          #Brave - NOPROXY
       bind = ${modifier},G,exec,${browser} https://chat.openai.com/    #Open ChatGPT
