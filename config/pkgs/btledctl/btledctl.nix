@@ -3,7 +3,7 @@
 {
   btledctl = pkgs.stdenv.mkDerivation rec {
     pname = "btledctl";
-    version = "0.2.0";
+    version = "1.0";
     src = ./.;
 
     buildInputs = with pkgs.python3Packages; [

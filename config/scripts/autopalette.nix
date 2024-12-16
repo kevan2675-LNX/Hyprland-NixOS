@@ -10,8 +10,8 @@ palettePath=$flakeDir/config/home/files/autopalette/custom.nix
 colorPalette=$flakeDir/config/home/files/autopalette/palette.html
 
 curWallPaper=$(cat $flakeDir/options.nix | grep curWallPaper | cut -d '=' -f2 | cut -d ';' -f1 | xargs)
-imageWidth=$(exiftool $curWallPaper | grep "Image Width" | cut -d ':' -f2 | xargs)
-imageHeight=$(exiftool $curWallPaper | grep "Image Height" | cut -d ':' -f2 | xargs)
+imageWidth=$(exiftool $curWallPaper | grep "^Image Width" | cut -d ':' -f2 | xargs)
+imageHeight=$(exiftool $curWallPaper | grep "^Image Height" | cut -d ':' -f2 | xargs)
 
 # Colors Extraction
 schemer2 -width $imageWidth -height $imageHeight -format img::colors -in $curWallPaper -out $colorsPath -threshold 70

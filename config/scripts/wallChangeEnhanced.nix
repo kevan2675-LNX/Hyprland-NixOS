@@ -3,7 +3,7 @@
 pkgs.writeShellScriptBin "wallchange" ''
 THEME="false"
 
-wallpaperDir=${wallpaperDir} 
+wallpaperDir=${wallpaperDir}
 flakeDir=${flakeDir}
 
 if [ -d ${wallpaperDir} ]; then
@@ -26,7 +26,7 @@ else
   chown -R ${username}:users ${wallpaperDir}
 fi
 
-  function changeTheme {
+function changeTheme {
   sed -i "s#curWallPaper = .*;#curWallPaper = \"$1\";#g" $flakeDir/options.nix
   sed -i "s/useWallColors = false;/useWallColors = $THEME;/g" $flakeDir/options.nix
   autopalette
@@ -47,12 +47,12 @@ while [[ $# -gt 0 ]]; do
     case $key in
         -t|--theme)
             THEME="$2"
-            shift 
-            shift 
+            shift
+            shift
             ;;
         *)
             WALLPAPER="$1"
-            shift 
+            shift
             ;;
     esac
 done
@@ -68,7 +68,7 @@ if [ "$THEME" = "true" ] && [ -z "$WALLPAPER" ]; then
 fi
 
 if [ "$THEME" = "true" ] && [ -n "$WALLPAPER" ]; then
-    wall=$(ls "$wallpaperDir" | grep "wall$WALLPAPER.*")
+    wall=$(ls "$wallpaperDir" | grep -E "^wall$WALLPAPER(\..*)?$")
     wallPath=$(realpath "$wallpaperDir/$wall")
     changeTheme "$wallPath"
 fi
@@ -87,7 +87,7 @@ if [ "$THEME" = "false" ] && [ -z "$WALLPAPER" ] ; then
 fi
 
 if [ "$WALLPAPER" ]; then
-    wall=$(ls "$wallpaperDir" | grep "wall$WALLPAPER.*")
+    wall=$(ls "$wallpaperDir" | grep -E "^wall$WALLPAPER(\..*)?$")
     wallPath=$(realpath "$wallpaperDir/$wall")
     sed -i "s#curWallPaper = .*;#curWallPaper = \"$wallPath\";#g" $flakeDir/options.nix
     ${pkgs.swww}/bin/swww img "$wallpaperDir/$wall"

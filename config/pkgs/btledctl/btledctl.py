@@ -94,7 +94,7 @@ async def control_light(device_address, action, brightness=None, color=None, dev
     """
     Control the smart light.
     - action: "on", "off", "brightness", or "color"
-    - brightness: Int (0-200) for brightness level (required if action="brightness")
+    - brightness: Int (0-100) for brightness level (required if action="brightness")
     - color: Tuple (R, G, B) for RGB color values (required if action="color")
     - devices: List of device addresses for group actions (required if action="brightness" or "color" and group control is needed)
     """
@@ -129,8 +129,8 @@ def parse_arguments():
                         "on", "off", "brightness", "color"], help="Action to perform on the light")
 
     # Optional arguments
-    parser.add_argument("--brightness", type=int, choices=range(201),
-                        help="Brightness level (0-200) if action is 'brightness'")
+    parser.add_argument("--brightness", type=int, choices=range(101),
+                        help="Brightness level (0-100) if action is 'brightness'")
     parser.add_argument("--color", type=str,
                         help="RGB values for color change as hex code (e.g., #FFAABB) or three integers (R, G, B)")
     parser.add_argument("--devices", type=str, nargs="*",
