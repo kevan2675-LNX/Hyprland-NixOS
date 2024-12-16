@@ -26,7 +26,7 @@ else
   chown -R ${username}:users ${wallpaperDir}
 fi
 
-function changeTheme { 
+  function changeTheme {
   sed -i "s#curWallPaper = .*;#curWallPaper = \"$1\";#g" $flakeDir/options.nix
   sed -i "s/useWallColors = false;/useWallColors = $THEME;/g" $flakeDir/options.nix
   autopalette
@@ -37,6 +37,8 @@ function changeTheme {
   ${pkgs.swaynotificationcenter}/bin/swaync-client -rs
   ags -q
   ${pkgs.hyprland}/bin/hyprctl dispatch exec ags
+  ledColor=$(cat $flakeDir/config/home/files/autopalette/custom.nix | grep -i "base08" | cut -d '"' -f 2 | xargs | cut -d '#' -f 2 | xargs)
+  btledctl 01:33:FF:FF:FF:FF color --color $ledColor
 }
 
 while [[ $# -gt 0 ]]; do

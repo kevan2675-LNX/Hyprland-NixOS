@@ -65,7 +65,7 @@ in {
       homeMode = "755";
       isNormalUser = true;
       description = "${gitUsername}";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "audio" "pulse-access" "qemu-libvirtd" "kvm" ];
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "audio" "pulse-access" "qemu-libvirtd" "kvm" "wireshark" ];
       shell = pkgs.${theShell};
       ignoreShellProgramCheck = true;
       packages = (with pkgs; [ 
@@ -100,7 +100,6 @@ in {
 	samba4Full
 	enum4linux-ng
 	openvpn
-	wireshark
 	zip
 	steghide
 	mangohud
@@ -150,8 +149,8 @@ in {
 	csvlens
 	postman
 	marktext
-	cava
-	zoxide
+	cava	
+	jadx
 	#STABLE_USER
       ]);
     };
@@ -163,7 +162,7 @@ in {
   };
 
   environment.systemPackages = (with pkgs; [
-        #SYSTEM_PKG
+        #SYSTEM_PKG 
       ])
     
       ++
@@ -181,6 +180,39 @@ in {
         pavucontrol
         pulseeffects-legacy
         alsa-utils
+        htop
+        btop
+        libvirt
+        polkit_gnome
+        lm_sensors
+        unzip
+        unrar
+        libnotify
+        v4l-utils
+        ydotool
+        wl-clipboard
+        socat
+        lsd
+        lshw
+        pkg-config
+        meson
+        gnumake
+        ninja
+        go
+        nodejs 
+        brightnessctl
+        toybox
+        virt-viewer
+        swappy
+        ripgrep
+        appimage-run 
+        networkmanagerapplet
+        yad
+        playerctl
+        nh
+        fastfetch
+        libcec
+        zoxide
 	#STABLE_SYSTEM
       ]);
 
@@ -204,9 +236,7 @@ in {
   virtualisation.docker.enable = true;
   virtualisation.virtualbox.host.enable = true;
   virtualisation.waydroid.enable = true;
-
-  services.openssh.enable = true;
-
+ 
   # Optimization settings and garbage collection automation
   nix = {
     settings = {

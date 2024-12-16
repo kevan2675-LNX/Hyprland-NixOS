@@ -4,16 +4,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List System Programs
-  environment.systemPackages = with pkgs; [
-    wget curl git neofetch htop btop libvirt
-    polkit_gnome lm_sensors unzip unrar libnotify
-    v4l-utils ydotool wl-clipboard socat lsd lshw
-    pkg-config meson gnumake ninja go nodejs 
-    brightnessctl toybox virt-viewer swappy ripgrep appimage-run 
-    networkmanagerapplet yad playerctl nh fastfetch libcec
-  ];
-
+  # List System Programs 
   programs = {
     steam.gamescopeSession.enable = true;
     dconf.enable = true;
@@ -39,6 +30,10 @@
     };
     yazi = {
       enable = true;
+    };
+    wireshark = {
+      enable = true;
+      package = pkgs.wireshark;
     };
   };
 

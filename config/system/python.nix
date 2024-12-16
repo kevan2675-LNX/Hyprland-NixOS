@@ -6,7 +6,7 @@ let
     pandas
     numpy
     requests
-    pip 
+    pip
   ];
 in lib.mkIf (python == true) {
   environment.systemPackages = with pkgs; [
