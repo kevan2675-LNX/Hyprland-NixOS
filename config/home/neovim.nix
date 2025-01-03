@@ -57,7 +57,7 @@ in {
 	};
       };
       indent-blankline.enable = true;
-      nvim-colorizer.enable = true;
+      colorizer.enable = true;
       nvim-autopairs.enable = true;
       nix.enable = true;
       comment.enable = true;

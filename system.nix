@@ -151,6 +151,7 @@ in {
 	marktext
 	cava	
 	jadx
+	qutebrowser-qt5
 	#STABLE_USER
       ]);
     };

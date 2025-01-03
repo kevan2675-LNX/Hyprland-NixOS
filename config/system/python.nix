@@ -7,6 +7,7 @@ let
     numpy
     requests
     pip
+    pproxy
   ];
 in lib.mkIf (python == true) {
   environment.systemPackages = with pkgs; [
