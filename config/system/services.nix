@@ -48,13 +48,13 @@
     wireplumber.enable = true;
   };
   services.resolved = {
-    enable = true;
+    enable = false;
     dnssec = "true";
     dnsovertls = "true";
     fallbackDns = [ "165.22.52.204" ];
     extraConfig = ''
       Domains=~.
-      DNS=1.1.1.1
+      DNS=192.168.1.11
     '';
   };
   services.udev = {
@@ -68,11 +68,12 @@
   hardware.pulseaudio.enable = false;
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-  #hardware.bluetooth.settings = {
-  #  General = {
-  #    Enable = "Source,Sink,Media,Socket";
-  #  };
-  #};
+  hardware.bluetooth.input = {
+    General = {
+      IdleTimeout = 3600;
+      ClassicBondedOnly = false;
+    };
+  };
   
   security.rtkit.enable = true;
   security.pam.services.hyprlock = {};

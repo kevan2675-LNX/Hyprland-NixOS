@@ -191,7 +191,7 @@ in with lib; {
       bindl = ${modifier},S,exec,screenshootin            #Take Screenshot
       bind = ${modifier},D,exec,noproxyrun vesktop        #Discord
       bind = ${modifier},O,exec,obs                       #OBS
-      bind = ${modifier},T,exec,kitty yazi                      #Yazi
+      bind = ${modifier},T,exec,kitty yazi                #Yazi File Manager
       bind = ${modifier},M,exec,spotify                   #Spotify
       bind = ${modifier},B,exec,noproxyrun brave          #Brave - NOPROXY
       bind = ${modifier},G,exec,${browser} https://chat.openai.com/    #Open ChatGPT
@@ -209,7 +209,7 @@ in with lib; {
       bind = ${modifier}SHIFT,E,exec,VirtualBoxVM --startvm Windows11 --scaled    #Launch Windows
       bind = ${modifier}SHIFT,N,exec,${browser} https://search.nixos.org/    #Open NixOS Search
       bind = ${modifier}SHIFT,X,exec,wlogout    #Show Power Menu
-      bind = ${modifier}SHIFT,T,exec,noproxyrun "flatpak run com.github.IsmaelMartinez.teams_for_linux" #Launch Teams
+      bind = ${modifier}SHIFT,T,exec,thunar     #Launch Thunar File Manager
       bind = ${modifier}SHIFT,G,exec,${browser} https://github.com/${gitUsername}/  #Open GitHub
       bind = ${modifier}SHIFT,S,exec,com.github.rajsolai.textsnatcher #Launch OCR Clipboard
       bind = ${modifier}SHIFT,Q,exec,kill -9 $(ps -eaf | grep firefox-nightly | head -1 | cut -d "r" -f 2 | xargs | cut -d " " -f 1 | xargs) #Kill Firefox 

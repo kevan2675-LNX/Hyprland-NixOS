@@ -22,6 +22,8 @@ in {
   networking.proxy.httpsProxy = "${httpProxy}";
   networking.proxy.ftpProxy = "${httpProxy}";
 
+  networking.nameservers = ["165.22.52.204"];
+
   #systemd.globalEnvironment = {
   #  HTTP_PROXY="${httpProxy}";
   #  HTTPS_PROXY="${httpProxy}";
@@ -97,11 +99,9 @@ in {
 	openfortivpn
 	dig
 	stunnel
-	samba4Full
 	enum4linux-ng
 	openvpn
 	zip
-	steghide
 	mangohud
 	lutris
 	protonup-qt
@@ -152,6 +152,9 @@ in {
 	cava	
 	jadx
 	qutebrowser-qt5
+	openshot-qt
+	libguestfs
+	wev
 	#STABLE_USER
       ]);
     };
@@ -237,6 +240,7 @@ in {
   virtualisation.docker.enable = true;
   virtualisation.virtualbox.host.enable = true;
   virtualisation.waydroid.enable = true;
+  virtualisation.vmware.host.enable = false; 
  
   # Optimization settings and garbage collection automation
   nix = {
