@@ -30,7 +30,7 @@
     package = pkgs.mysql84;
   };
   services.twingate = {
-    enable = true;
+    enable = false;
     package = pkgs.twingate;
   };
   services.power-profiles-daemon.enable = true;
@@ -48,13 +48,13 @@
     wireplumber.enable = true;
   };
   services.resolved = {
-    enable = false;
+    enable = true;
     dnssec = "true";
     dnsovertls = "true";
     fallbackDns = [ "165.22.52.204" ];
     extraConfig = ''
       Domains=~.
-      DNS=192.168.1.11
+      DNS=1.1.1.1
     '';
   };
   services.udev = {

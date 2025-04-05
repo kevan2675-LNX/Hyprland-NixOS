@@ -87,7 +87,6 @@ lib.mkIf (theShell == "zsh") {
       config="cd ~/Lucifers_NIX/";	
       nixsearch="brave https://search.nixos.org/";
       lock="swaylock --config ~/.config/swaylock/config";
-      #rebuild="config && git add . && sudo nixos-rebuild switch --flake .";
       try="nix-shell -p ";
     };
   };

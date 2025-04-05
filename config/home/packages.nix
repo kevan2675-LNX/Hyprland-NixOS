@@ -110,7 +110,7 @@ in {
     })
     (import ./../scripts/usbDAC.nix {
       inherit pkgs;
-    })
+    }) 
   ];
 
   programs.gh.enable = true;

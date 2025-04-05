@@ -217,6 +217,7 @@ in {
         fastfetch
         libcec
         zoxide
+	caido
 	#STABLE_SYSTEM
       ]);
 
