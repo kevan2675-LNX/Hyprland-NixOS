@@ -47,6 +47,14 @@
     jack.enable = true;
     wireplumber.enable = true;
   };
+  #services.pulseaudio = {
+  #  enable = false;
+  #  support32Bit = true;
+  #  package = pkgs.pulseaudioFull;
+  #  tcp = {
+  #    enable = true;
+  #  };
+  #};
   services.resolved = {
     enable = true;
     dnssec = "true";

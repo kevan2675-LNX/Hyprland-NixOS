@@ -8,6 +8,7 @@ in
     pname = "schemer2";
     version = "2";
     vendorHash = null;
+    env.CGO_ENABLED = 1;
      
     src = fetchgit {
       url = "https://github.com/Arana-Jayavihan/schemer2";
@@ -16,8 +17,6 @@ in
     buildInputs = [
       libvirt
       libxml2
-    ];
-
-    CGO_ENABLED = 1;
+    ]; 
   };
 }

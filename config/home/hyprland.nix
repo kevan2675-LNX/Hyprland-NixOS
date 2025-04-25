@@ -34,6 +34,7 @@ in with lib; {
       windowrulev2 = opacity 0.75 override 0.75 override,initialClass:^(kitty.*)$
 
       windowrulev2 = opacity 1.0 override 1.0 override,title:^(.*YouTube.*)$
+      windowrulev2 = idleinhibit focus, title:^(.*YouTube.*)$
       windowrulev2 = opacity 1.0 override 1.0 override,title:^(.*HiAnime.*)$
       windowrulev2 = opacity 1.0 override 1.0 override,title:^(.*HollyMovieHD.*)$
       windowrulev2 = opacity 1.0 override 1.0 override,initialClass:^(.*VirtualBox.*)$ 

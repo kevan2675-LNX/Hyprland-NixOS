@@ -155,6 +155,9 @@ in {
 	openshot-qt
 	libguestfs
 	wev
+	postgresql_17
+	vscode
+	prisma
 	#STABLE_USER
       ]);
     };
@@ -217,7 +220,7 @@ in {
         fastfetch
         libcec
         zoxide
-	caido
+	gparted
 	#STABLE_SYSTEM
       ]);
 

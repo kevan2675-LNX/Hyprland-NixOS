@@ -313,7 +313,7 @@ body,html{overflow-y: auto}
   searchEngines = {
     "Brave" = {
       urls = [{ template = "https://search.brave.com/search?q={searchTerms}"; }];
-      iconUpdateURL = "https://cdn.search.brave.com/serp/v1/static/brand/9b3cd14668935362449eebb1854f575091a1169bf51aba6a8c17b39f64a9d07e-favicon-16x16.png";
+      icon = "https://cdn.search.brave.com/serp/v1/static/brand/9b3cd14668935362449eebb1854f575091a1169bf51aba6a8c17b39f64a9d07e-favicon-16x16.png";
       definedAliases = [ "@br" ];
     };
 
@@ -332,7 +332,7 @@ body,html{overflow-y: auto}
 
     "NixOS Wiki" = {
       urls = [{ template = "https://wiki.nixos.org/index.php?search={searchTerms}"; }];
-      iconUpdateURL = "https://wiki.nixos.org/favicon.png";
+      icon = "https://wiki.nixos.org/favicon.png";
       updateInterval = 24 * 60 * 60 * 1000; # every day
       definedAliases = [ "@nw" ];
     };

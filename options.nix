@@ -13,7 +13,7 @@ in {
   hostname = hostname;
   gitUsername = "Arana-Jayavihan";
   gitEmail = "aranajayavihan@gmail.com";
-  theme = "apathy";
+  theme = "3024";
   borderAnim = true;
   browser = "firefox-nightly";
   autoWallChange = false;
@@ -21,7 +21,7 @@ in {
   # ^ (use as is or replace with your own repo - removing will break the wallsetter script) 
   wallpaperDir = "${userHome}/Projects/nix-wallpapers";
   useWallColors = true;
-  curWallPaper = "/home/lucifer/Projects/nix-wallpapers/wall86.jpg";
+  curWallPaper = "/home/lucifer/Projects/nix-wallpapers/wall88.png";
   screenshotDir = "${userHome}/Pictures/Screenshots";
   userHome = "${userHome}";
   flakeDir = "${flakeDir}";
