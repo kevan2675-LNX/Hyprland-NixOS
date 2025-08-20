@@ -17,7 +17,7 @@ imageHeight=$(exiftool $curWallPaper | grep "^Image Height" | cut -d ':' -f2 | x
 schemer2 -width $imageWidth -height $imageHeight -format img::colors -in $curWallPaper -out $colorsPath -threshold 70
 
 # Palette Generator Python Script
-${pkgs.python3}/bin/python3 <<EOF
+${pkgs.python313}/bin/python3 <<EOF
 import random
 import colorsys
 import sys

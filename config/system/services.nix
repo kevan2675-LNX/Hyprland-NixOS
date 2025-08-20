@@ -56,7 +56,7 @@
   #  };
   #};
   services.resolved = {
-    enable = true;
+    enable = false;
     dnssec = "true";
     dnsovertls = "true";
     fallbackDns = [ "165.22.52.204" ];
@@ -71,9 +71,14 @@
       ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="0495", ATTR{idProduct}=="3042", RUN+="/bin/sh -c '/etc/profiles/per-user/lucifer/bin/usbDAC'"
     '';
   };
+
+  services.pulseaudio.enable = false;
+
+  services.cloudflare-warp = {
+    enable = true;
+  };
   
   hardware.enableAllFirmware = true;
-  hardware.pulseaudio.enable = false;
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   hardware.bluetooth.input = {

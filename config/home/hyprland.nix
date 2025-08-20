@@ -20,11 +20,12 @@ in with lib; {
     extraConfig = let
       modifier = "SUPER";
     in concatStrings [ ''
-      monitor=eDP-1,1920x1080,0x0,1
+      monitor=eDP-1,1920x1080,0x0,1,cm,hdr
       monitor=HDMI-A-1,1920x1080@144,auto,1
+      monitor=,preferred,auto,1
 
-      windowrule = fullscreen, ^(wlogout)$
-      windowrule = animation fade,^(wlogout)$
+      windowrule = fullscreen, title:^(wlogout)$
+      windowrule = animation fade, title:^(wlogout)$
 
       windowrulev2 = opacity 0.8 override 0.8 override,initialClass:^(.*)$
 
@@ -56,8 +57,8 @@ in with lib; {
       workspace = 9, monitor:eDP-1
 
       general {
-        gaps_in = 6
-        gaps_out = 6
+        gaps_in = 4
+        gaps_out = 4
         border_size = 2
         col.active_border = rgba(${theme.base0C}ff) rgba(${theme.base0D}ff) rgba(${theme.base0B}ff) rgba(${theme.base0E}ff) 45deg
         col.inactive_border = rgba(${theme.base00}cc) rgba(${theme.base01}cc) 45deg

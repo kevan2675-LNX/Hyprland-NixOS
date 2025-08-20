@@ -6,7 +6,7 @@
     version = "1.0";
     src = ./.;
 
-    buildInputs = with pkgs.python3Packages; [
+    buildInputs = with pkgs.python313Packages; [
       bleak
       pyinstaller
     ];

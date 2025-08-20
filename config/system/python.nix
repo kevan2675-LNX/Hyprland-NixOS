@@ -11,7 +11,7 @@ let
   ];
 in lib.mkIf (python == true) {
   environment.systemPackages = with pkgs; [
-    (pkgs.python3.withPackages my-python-packages)
+    (pkgs.python313.withPackages my-python-packages)
   ];
 
 }

@@ -21,7 +21,7 @@ in {
   # ^ (use as is or replace with your own repo - removing will break the wallsetter script) 
   wallpaperDir = "${userHome}/Projects/nix-wallpapers";
   useWallColors = true;
-  curWallPaper = "/home/lucifer/Projects/nix-wallpapers/wall88.png";
+  curWallPaper = "/home/lucifer/Projects/nix-wallpapers/wall91.jpg";
   screenshotDir = "${userHome}/Pictures/Screenshots";
   userHome = "${userHome}";
   flakeDir = "${flakeDir}";
@@ -41,8 +41,8 @@ in {
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
-  cpuType = "intel";
-  gpuType = "intel";
+  cpuType = "amd";
+  gpuType = "amd";
 
   #Proxy Settings
   useProxy = proxy;
@@ -66,13 +66,13 @@ in {
 
   # NTP & HWClock Settings
   ntp = true;
-  localHWClock = false;
+  localHWClock = true;
 
   # Enable Printer & Scanner Support
   printer = true;
 
   # Enable Flatpak & Larger Programs
-  distrobox = false;
+  distrobox = true;
   flatpak = true;
   kdenlive = true;
 

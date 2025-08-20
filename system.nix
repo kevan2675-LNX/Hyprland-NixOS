@@ -1,4 +1,4 @@
-{ config, pkgs, username, hostname, pkgs-stable, ... }:
+{ config, pkgs, username, hostname, pkgs-unstable, ... }:
 
 let 
   inherit (import ./options.nix) 
@@ -74,9 +74,7 @@ in {
       shell = pkgs.${theShell};
       ignoreShellProgramCheck = true;
       packages = (with pkgs; [ 
-        networkmanager-fortisslvpn
 	bun
-	go-ethereum
 	gcc
 	openssl
 	netcat
@@ -92,14 +90,11 @@ in {
 	file
 	tshark
 	sshpass
-	motrix
 	inetutils
 	netdiscover
 	exiftool
 	hexedit
 	binwalk
-	thc-hydra
-	openfortivpn
 	dig
 	stunnel
 	enum4linux-ng
@@ -114,18 +109,17 @@ in {
 	wineWowPackages.stable
 	tcptraceroute
 	hyprpicker
-	john
-        dbeaver-bin
+        dbgate
         android-studio
 	zed-editor
         deno
         gdk
-	#USER_PKG
+	#STABLE_USER
       ])
 
       ++
 
-      (with pkgs-stable; [
+      (with pkgs-unstable; [
         qbittorrent
         xz
         sysstat
@@ -134,7 +128,6 @@ in {
 	hdparm
 	nasm
 	pwninit
-	steam-run
 	gef
 	patchelf
 	scrcpy
@@ -165,8 +158,8 @@ in {
 	screen
 	jq
 	tmux
-	ungoogled-chromium
-	#STABLE_USER
+        ungoogled-chromium
+        #USER_PKG	
       ]);
     };
   };
@@ -177,13 +170,7 @@ in {
   };
 
   environment.systemPackages = (with pkgs; [
-        #SYSTEM_PKG 
-      ])
-    
-      ++
-
-      (with pkgs-stable; [
-        curl
+       curl
         git
         pciutils
         wget
@@ -229,7 +216,13 @@ in {
         libcec
         zoxide
 	gparted
-	#STABLE_SYSTEM
+        #STABLE_SYSTEM 
+      ])
+    
+      ++
+
+      (with pkgs-unstable; [
+        #SYSTEM_PKG
       ]);
 
   fonts = {
@@ -270,10 +263,6 @@ in {
       options = "--delete-older-than 7d";
     };
   };
-  #nixpkgs.config.permittedInsecurePackages = [
-  #  "nix-2.16.2"
-  #  "python-2.7.18.7"
-  #  "python"
-  #];
+
   system.stateVersion = "23.11";
 }

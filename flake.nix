@@ -2,12 +2,12 @@
   description = "Lucifer's NIX";
 
   inputs = {
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nix-colors.url = "github:misterio77/nix-colors";
     ags.url = "github:/Aylur/ags/v1";
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
@@ -27,7 +27,7 @@
     spicetify-nix = {
       type = "git";
       url = "https://github.com/Arana-Jayavihan/spicetify-nix.git";
-      rev = "834c8f9bb8a7b63ba242f9ce0db81708c620f2bc";
+      #rev = "834c8f9bb8a7b63ba242f9ce0db81708c620f2bc";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     firefox = {
@@ -39,7 +39,7 @@
     impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = inputs@{ nixpkgs-stable, nixpkgs, home-manager, impermanence, nix-colors, spicetify-nix, firefox, ... }:
+  outputs = inputs@{ nixpkgs-unstable, nixpkgs, home-manager, impermanence, nix-colors, spicetify-nix, firefox, ... }:
   let
     system = "x86_64-linux";
     inherit (import ./options.nix) username hostname;
@@ -51,7 +51,7 @@
       };
     };
 
-    pkgs-stable = import nixpkgs-stable {
+    pkgs-unstable = import nixpkgs-unstable {
       inherit system;
       config = {
 	    allowUnfree = true;
@@ -68,7 +68,7 @@
           inherit inputs; 
           inherit username; 
           inherit hostname;
-          inherit pkgs-stable;
+          inherit pkgs-unstable;
           inherit nixColorsContrib;
           inherit firefox;
         };
@@ -79,7 +79,7 @@
 	    home-manager.extraSpecialArgs = {
               inherit username; 
               inherit inputs;
-              inherit pkgs-stable;
+              inherit pkgs-unstable;
               inherit nixColorsContrib;
               inherit spicetify-nix;
               inherit firefox;

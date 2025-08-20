@@ -3,7 +3,7 @@
 {
   # Steam Configuration
   programs.steam = {
-    enable = true;
+    enable = false;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     protontricks.enable = true;

@@ -1,7 +1,7 @@
 { pkgs, spicetify-nix, config, ... }:
 
 let
-  spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
+  spicePkgs = spicetify-nix.legacyPackages.${pkgs.stdenv.system};
   palette = config.colorScheme.palette;
 in
 {

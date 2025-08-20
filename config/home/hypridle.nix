@@ -29,6 +29,7 @@ listener {
 listener {
   timeout = 7200                          # 2hours 
   on-timeout = systemctl suspend
+  on-resume = reloadShell
 }
 '';
 }

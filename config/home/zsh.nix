@@ -12,7 +12,14 @@ lib.mkIf (theShell == "zsh") {
       #  exec Hyprland
       #fi
     '';
-    initExtra = ''
+    initContent = ''
+      HISTFILE=~/.histfile
+      HISTSIZE=1000
+      SAVEHIST=1000
+      setopt autocd nomatch
+      unsetopt beep extendedglob notify
+      autoload -Uz compinit
+      compinit
       zstyle ":completion:*" menu select
       zstyle ":completion:*" matcher-list "" "m:{a-z0A-Z}={A-Za-z}" "r:|=*" "l:|=* r:|=*"
       if type nproc &>/dev/null; then
@@ -31,15 +38,7 @@ lib.mkIf (theShell == "zsh") {
       fi
       #eval "$(starship init zsh)"
     '';
-    initExtraFirst = ''
-      HISTFILE=~/.histfile
-      HISTSIZE=1000
-      SAVEHIST=1000
-      setopt autocd nomatch
-      unsetopt beep extendedglob notify
-      autoload -Uz compinit
-      compinit
-    '';
+
     sessionVariables = {
 
     };
