@@ -165,7 +165,7 @@ in with lib; {
       exec-once = nm-applet --indicator
 
       # Custom Startup Apps
-      exec-once = hyprctl dispatch exec "[workspace 10 silent;]" -- kitty /home/lucifer/Projects/TCP-Over-SSL-Tunnel/start.sh
+      exec-once = hyprctl dispatch exec "[workspace 10 silent;]" -- kitty python /home/lucifer/Project/TCP-Over-SSL-Tunnel/main.py
       exec-once = hyprctl dispatch exec "[workspace 10 silent;]" -- kitty AndroControl
       exec-once = hyprctl dispatch exec "[workspace 10 silent;]" -- blueman-manager
       exec-once = hyprctl dispatch exec "[workspace 9 silent;]" -- spotify

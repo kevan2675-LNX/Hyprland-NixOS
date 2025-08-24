@@ -72,7 +72,7 @@ in {
   printer = true;
 
   # Enable Flatpak & Larger Programs
-  distrobox = true;
+  distrobox = false;
   flatpak = true;
   kdenlive = true;
 
