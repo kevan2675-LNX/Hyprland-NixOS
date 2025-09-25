@@ -114,6 +114,7 @@ in {
 	zed-editor
         deno
         gdk
+	burpsuite
 	#STABLE_USER
       ])
 
@@ -216,7 +217,8 @@ in {
         libcec
         zoxide
 	gparted
-        #STABLE_SYSTEM 
+        aircrack-ng
+	#STABLE_SYSTEM 
       ])
     
       ++

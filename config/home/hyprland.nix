@@ -165,12 +165,12 @@ in with lib; {
       exec-once = nm-applet --indicator
 
       # Custom Startup Apps
-      exec-once = hyprctl dispatch exec "[workspace 10 silent;]" -- kitty python /home/lucifer/Project/TCP-Over-SSL-Tunnel/main.py
+      exec-once = hyprctl dispatch exec "[workspace 10 silent;]" -- kitty python /home/lucifer/Projects/TCP-Over-SSL-Tunnel/main.py
       exec-once = hyprctl dispatch exec "[workspace 10 silent;]" -- kitty AndroControl
       exec-once = hyprctl dispatch exec "[workspace 10 silent;]" -- blueman-manager
       exec-once = hyprctl dispatch exec "[workspace 9 silent;]" -- spotify
       exec-once = hyprctl dispatch exec "[workspace 9 silent;]" -- kitty cava
-      exec-once = ${pkgs.power-profiles-daemon}/bin/powerprofilesctl set power-saver
+      exec-once = ${pkgs.power-profiles-daemon}/bin/powerprofilesctl set performance
       
       dwindle {
         pseudotile = true
@@ -195,7 +195,8 @@ in with lib; {
       bind = ${modifier},T,exec,kitty yazi                #Yazi File Manager
       bind = ${modifier},M,exec,spotify                   #Spotify
       bind = ${modifier},B,exec,noproxyrun brave          #Brave - NOPROXY
-      bind = ${modifier},G,exec,${browser} https://chat.openai.com/    #Open ChatGPT
+      bind = ${modifier},C,exec,noproxyrun chromium-browser             #Chromium - NOPROXY
+      bind = ${modifier},G,exec,${browser} https://chat.openai.com/     #Open ChatGPT
       bind = ${modifier},P,pseudo,                        #Pseudo Tiling
       bind = ${modifier},F,fullscreen,                    #Toggle Fullscreen
       bind = ${modifier},Q,killactive,                    #Kill Active Window
