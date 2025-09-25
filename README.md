@@ -73,6 +73,12 @@ Huge appreciation for Tyler Kelley for building such an amazing flake. Learned a
 
 [![credits](https://gitlab.com/uploads/-/system/project/avatar/53038185/Gitlab_Nix_Picture.png?width=48 "Credits to Zaney")](https://gitlab.com/Zaney/zaneyos/-/tree/8e643956f0abf8011101771b956d994a2d052ae7)
 
-## Star History
+## Stargazers
 
-[![Star History Chart](https://api.star-history.com/svg?repos=Arana-Jayavihan/Lucifers_NIX&type=Date)](https://www.star-history.com/#Arana-Jayavihan/Lucifers_NIX&Date)
+<a href="https://www.star-history.com/#Arana-Jayavihan/Lucifers_NIX&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Arana-Jayavihan/Lucifers_NIX&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Arana-Jayavihan/Lucifers_NIX&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Arana-Jayavihan/Lucifers_NIX&type=Date" />
+ </picture>
+</a>
