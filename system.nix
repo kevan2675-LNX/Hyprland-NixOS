@@ -87,7 +87,6 @@ in {
 	metasploit
 	dex2jar
 	android-tools
-	file
 	tshark
 	sshpass
 	inetutils
@@ -114,7 +113,7 @@ in {
 	zed-editor
         deno
         gdk
-	burpsuite
+        burpsuite
 	#STABLE_USER
       ])
 
@@ -127,7 +126,6 @@ in {
         dmidecode
 	textsnatcher
 	hdparm
-	nasm
 	pwninit
 	gef
 	patchelf
@@ -140,16 +138,13 @@ in {
 	spice-gtk
 	cbonsai
 	peaclock
-        putty
         anydesk
-	ntfs3g
 	nixpkgs-fmt
 	csvlens
 	postman
 	marktext
 	cava	
 	jadx
-	qutebrowser-qt5
 	openshot-qt
 	libguestfs
 	wev
@@ -176,6 +171,7 @@ in {
         pciutils
         wget
         file
+        nasm
         inetutils
         tcpdump
         parted
@@ -218,6 +214,7 @@ in {
         zoxide
 	gparted
         aircrack-ng
+        ntfs3g
 	#STABLE_SYSTEM 
       ])
     
