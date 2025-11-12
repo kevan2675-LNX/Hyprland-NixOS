@@ -24,6 +24,9 @@ in {
     swaylock-effects
 
     # Import Scripts
+    (import ./../scripts/macchanger.nix {
+      inherit pkgs;
+    })
     (import ./../scripts/emopicker9000.nix { 
       inherit pkgs;
     })
