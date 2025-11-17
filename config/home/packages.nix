@@ -23,10 +23,7 @@ in {
     tree
     swaylock-effects
 
-    # Import Scripts
-    (import ./../scripts/macchanger.nix {
-      inherit pkgs;
-    })
+    # Import Scripts 
     (import ./../scripts/emopicker9000.nix { 
       inherit pkgs;
     })
