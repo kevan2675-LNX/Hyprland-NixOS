@@ -114,6 +114,7 @@ in {
         deno
         gdk
         burpsuite
+        proxychains-ng
 	#STABLE_USER
       ])
 
@@ -215,6 +216,7 @@ in {
 	gparted
         aircrack-ng
         ntfs3g
+        proxychains-ng
 	#STABLE_SYSTEM 
       ])
     
