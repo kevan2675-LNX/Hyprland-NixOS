@@ -10,6 +10,14 @@ pkgs.stdenv.mkDerivation {
   dontBuild = true;
   src = ./theme;
 
+  dontWrapQtApps = true;
+
+  propagatedBuildInputs = with pkgs.kdePackages; [
+    qtsvg
+    qtmultimedia
+    qtvirtualkeyboard
+  ];
+
   installPhase = ''
     user=${username}
     mkdir -p $out/share/sddm/themes

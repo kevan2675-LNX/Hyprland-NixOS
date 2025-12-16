@@ -98,15 +98,15 @@ in with lib; {
         env = WLR_NO_HARDWARE_CURSORS,1
       '' else ''
       ''}
-      gestures {
-        workspace_swipe = true
-        workspace_swipe_fingers = 3
-      }
+        
+      gesture = 3, horizontal, workspace
+
       misc {
         mouse_move_enables_dpms = true
         key_press_enables_dpms = false
         vfr = true
       }
+
       animations {
         enabled = yes
         bezier = wind, 0.05, 0.9, 0.1, 1.05
@@ -150,8 +150,8 @@ in with lib; {
       exec-once = $POLKIT_BIN
       exec-once = dbus-update-activation-environment --systemd --all
       exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-      exec-once = swww init
-      exec-once = swww img "${curWallPaper}"
+      exec-once = swww-daemon -q
+      #exec-once = swww img "${curWallPaper}"
       exec-once = hypridle
       exec-once = swaync
       exec-once = ags

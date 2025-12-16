@@ -3,9 +3,11 @@
 pkgs.python313Packages.buildPythonPackage rec {
   name = "autosubtitle";
   version = "1.0";
+  format = "pyproject";
   src = ./.;
 
-  propagatedBuildInputs = [ 
+  build-system = [ pkgs.python313Packages.setuptools ];
+  propagatedBuildInputs = [
     pkgs.python313Packages.setuptools
     pkgs.python313Packages.openai-whisper
     pkgs.python313Packages.pyinstaller

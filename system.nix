@@ -40,7 +40,7 @@ in {
   '';
 
   #Firewall
-  networking.firewall.enable = false;
+  networking.firewall.enable = useFirewall;
   networking.firewall.allowedTCPPorts = if useFirewall == true 
   then firewallPorts
   else [];
@@ -114,7 +114,6 @@ in {
         deno
         gdk
         burpsuite
-        proxychains-ng
 	#STABLE_USER
       ])
 
@@ -146,7 +145,6 @@ in {
 	marktext
 	cava	
 	jadx
-	openshot-qt
 	libguestfs
 	wev
 	postgresql_17
@@ -167,7 +165,7 @@ in {
   };
 
   environment.systemPackages = (with pkgs; [
-       curl
+        curl
         git
         pciutils
         wget
@@ -229,7 +227,7 @@ in {
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
-      ubuntu_font_family
+      ubuntu-classic
       nerd-fonts.jetbrains-mono
       font-awesome
       noto-fonts-color-emoji

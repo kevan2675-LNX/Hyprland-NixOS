@@ -3,17 +3,18 @@
 
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nix-colors.url = "github:misterio77/nix-colors";
     ags.url = "github:/Aylur/ags/v1";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
+      rev = "c38bb1a700f6003ce9ff36ff8143bd1f4ccaa879";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland-plugins = {
@@ -21,7 +22,9 @@
       inputs.hyprland.follows = "hyprland";
     };
     nixvim = {
-      url = "github:nix-community/nixvim";
+      type = "git";
+      url = "https://github.com/nix-community/nixvim";
+      #rev = "0e8b4ccf0a4e4e90f9ca39295e807628a6e575e6";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
@@ -42,6 +45,7 @@
   outputs = inputs@{ nixpkgs-unstable, nixpkgs, home-manager, impermanence, nix-colors, spicetify-nix, firefox, ... }:
   let
     system = "x86_64-linux";
+
     inherit (import ./options.nix) username hostname;
 
     pkgs = import nixpkgs {
@@ -63,8 +67,8 @@
   in {
     nixosConfigurations = {
       "${hostname}" = nixpkgs.lib.nixosSystem {
-	specialArgs = { 
-          inherit system; 
+        inherit system;
+        specialArgs = {
           inherit inputs; 
           inherit username; 
           inherit hostname;

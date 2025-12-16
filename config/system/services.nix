@@ -17,7 +17,7 @@
   };
  
   # List services that you want to enable:
-  services.logind.lidSwitchExternalPower = "ignore";
+  services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
   services.openssh.enable = true;
   services.fstrim.enable = true;
   services.vnstat.enable = true;

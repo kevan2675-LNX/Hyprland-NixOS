@@ -10,3 +10,4 @@ MainScript=Main.qml
 ConfigFile=theme.conf
 TranslationsDirectory=translations
 Theme-Id=sddm-astronaut-theme
+QtVersion=6

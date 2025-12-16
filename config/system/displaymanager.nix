@@ -16,8 +16,9 @@ theKBDLayout theSecondKBDLayout; in
     #  wayland.enable = true;
     #  theme = "sddm-firewatch";
     #};
-    desktopManager.gnome.enable = true;    
   };
+
+  services.desktopManager.gnome.enable = true;    
 
   services.displayManager = {
     enable = true;
@@ -26,8 +27,14 @@ theKBDLayout theSecondKBDLayout; in
       wayland = {
         enable = true;
       };
-      theme = "sddm-adaptive-theme";
+      #theme = "sddm-adaptive-theme";
       autoNumlock = true;
+      theme = "${pkgs.sddm-astronaut}/share/sddm/themes/sddm-astronaut-theme";
+      extraPackages = with pkgs.kdePackages; [
+        qtsvg
+        qtmultimedia
+        qtvirtualkeyboard
+      ];
     };
   };
 
