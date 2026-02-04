@@ -1,4 +1,4 @@
-{ pkgs, config, username, ... }:
+{ pkgs, config, username, pkgs-unstable, ... }:
 
 let 
   inherit (import ../../options.nix) 
@@ -114,6 +114,11 @@ in {
     (import ./../scripts/idle-inhibitor.nix {
       inherit pkgs;
     })
+    (import ./../scripts/claude.nix {
+      inherit pkgs;
+      inherit pkgs-unstable;
+    })
+
   ];
 
   programs.gh.enable = true;

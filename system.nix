@@ -154,7 +154,9 @@ in {
 	jq
 	tmux
         ungoogled-chromium
-        #USER_PKG	
+        claude-code
+	ngrok
+	#USER_PKG	
       ]);
     };
   };
@@ -243,8 +245,12 @@ in {
 
   virtualisation.docker.enable = true;
   virtualisation.virtualbox.host.enable = true;
-  virtualisation.waydroid.enable = true;
   virtualisation.vmware.host.enable = false; 
+  virtualisation.waydroid = {
+    enable = true;
+    package = pkgs-unstable.waydroid-nftables;
+  };
+
  
   # Optimization settings and garbage collection automation
   nix = {
