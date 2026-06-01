@@ -30,10 +30,10 @@
     enable = true;
     package = pkgs.mysql84;
   };
-  services.twingate = {
-    enable = true;
-    package = pkgs.twingate;
-  };
+  #services.twingate = {
+    #enable = false;
+    #package = pkgs.twingate;
+  #};
   services.power-profiles-daemon.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.gnome.gnome-remote-desktop.enable = true;
@@ -111,11 +111,11 @@
   systemd.services."batteryNotify" = {
     script = ''
       set -eu
-      /etc/profiles/per-user/lucifer/bin/batteryNotify     
+      /etc/profiles/per-user/vashlinux/bin/batteryNotify     
     '';   
     serviceConfig = {
       Type = "oneshot";
-      User = "lucifer";
+      User = "vashlinux";
     };
   };
 

@@ -21,12 +21,12 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-    nixvim = {
-      type = "git";
-      url = "https://github.com/nix-community/nixvim";
+    #nixvim = {
+     #type = "git";
+      #url = "https://github.com/nix-community/nixvim";
       #rev = "0e8b4ccf0a4e4e90f9ca39295e807628a6e575e6";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+      #inputs.nixpkgs.follows = "nixpkgs";
+    #};
     spicetify-nix = {
       type = "git";
       url = "https://github.com/Arana-Jayavihan/spicetify-nix.git";
@@ -78,6 +78,7 @@
         };
 	modules = [ 
           ./system.nix
+	  ./hardware.nix #Sinkronkan hardware dengan flake
 	  impermanence.nixosModules.impermanence
           home-manager.nixosModules.home-manager {
 	    home-manager.extraSpecialArgs = {

@@ -1,27 +1,27 @@
 let
   # THINGS YOU NEED TO CHANGE
-  username = "lucifer";
+  username = "vashlinux";
   hostname = "nixos";
   userHome = "/home/${username}";
-  flakeDir = "${userHome}/Lucifers_NIX";
-  proxy = true;
+  flakeDir = "${userHome}/vashlinux";
+  proxy = false;
   socks = "1080";
   http = "1090";
 in {
   # User Variables
   username = username;
   hostname = hostname;
-  gitUsername = "Arana-Jayavihan";
-  gitEmail = "aranajayavihan@gmail.com";
+  gitUsername = "kevan2675-LNX";
+  gitEmail = "kevan2675@gmail.com";
   theme = "3024";
   borderAnim = true;
-  browser = "firefox-nightly";
+  browser = "brave";
   autoWallChange = false;
   wallpaperGit = "https://github.com/Arana-Jayavihan/nix-wallpapers.git";
   # ^ (use as is or replace with your own repo - removing will break the wallsetter script) 
   wallpaperDir = "${userHome}/Projects/nix-wallpapers";
   useWallColors = true;
-  curWallPaper = "/home/lucifer/Projects/nix-wallpapers/wall26.jpg";
+  curWallPaper = "${userHome}/Projects/nix-wallpapers/wall26.jpg";
   screenshotDir = "${userHome}/Pictures/Screenshots";
   userHome = "${userHome}";
   flakeDir = "${flakeDir}";
@@ -35,10 +35,10 @@ in {
   theSecondKBDLayout = "de";
   theKBDVariant = "";
   theLCVariables = "en_US.UTF-8";
-  theTimezone = "Asia/Colombo";
+  theTimezone = "Asia/Jakarta";
   theShell = "zsh"; # Possible options: bash, zsh
   theKernel = "zen"; # Possible options: default, latest, lqx, xanmod, zen
-  sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
+  sdl-videodriver = "wayland"; # Either x11 or wayland ONLY. Games might require x11 set here
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
   cpuType = "intel";
@@ -74,7 +74,7 @@ in {
   # Enable Flatpak & Larger Programs
   distrobox = false;
   flatpak = true;
-  kdenlive = true;
+  kdenlive = false;
 
   # Enable Support For
   # Logitech Devices

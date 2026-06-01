@@ -9,7 +9,7 @@
     ./hyprland.nix   
     ./kitty.nix
     ./neofetch.nix
-    ./neovim.nix
+   #./neovim.nix
     ./packages.nix
     ./rofi.nix
     ./starship.nix

@@ -17,15 +17,21 @@ in with lib; {
     plugins = [
       #pkgs.hyprlandPlugins.hyprtrails
     ];
+
     extraConfig = let
-      modifier = "SUPER";
+    modifier = "SUPER";
+
     in concatStrings [ ''
-      monitor=eDP-1,1920x1080,0x0,1,cm,hdr
-      monitor=HDMI-A-1,1920x1080@144,auto,1
+      monitor=eDP-1,1920x1080,0x0,1.25
+      monitor=HDMI-A-1,preferred,auto,1
       monitor=,preferred,auto,1
 
       windowrule = fullscreen, title:^(wlogout)$
       windowrule = animation fade, title:^(wlogout)$
+
+      xwayland {
+          force_zero_scaling = true
+     }
 
       windowrulev2 = opacity 0.8 override 0.8 override,initialClass:^(.*)$
 
@@ -57,8 +63,8 @@ in with lib; {
       workspace = 9, monitor:eDP-1
 
       general {
-        gaps_in = 4
-        gaps_out = 4
+        gaps_in = 6
+        gaps_out = 10
         border_size = 2
         col.active_border = rgba(${theme.base0C}ff) rgba(${theme.base0D}ff) rgba(${theme.base0B}ff) rgba(${theme.base0E}ff) 45deg
         col.inactive_border = rgba(${theme.base00}cc) rgba(${theme.base01}cc) 45deg
@@ -67,7 +73,7 @@ in with lib; {
       }
 
       input {
-        kb_layout = ${theKBDLayout}, ${theSecondKBDLayout}
+        kb_layout = us
 	kb_options = grp:alt_shift_toggle
         #kb_options=caps:super
         follow_mouse = 1

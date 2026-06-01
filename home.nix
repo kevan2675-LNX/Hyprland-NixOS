@@ -19,7 +19,7 @@ in {
   imports = [
     inputs.ags.homeManagerModules.default
     inputs.nix-colors.homeManagerModules.default
-    inputs.nixvim.homeModules.nixvim
+    #inputs.nixvim.homeModules.nixvim
     inputs.hyprland.homeManagerModules.default
     inputs.spicetify-nix.homeManagerModules.default
     ./config/home
