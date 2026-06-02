@@ -101,6 +101,10 @@ in {
 
   programs.hyprland.enable = true;
 
+  programs.ags = {
+     enable = true;
+     configDir = ./config/home/files/ags;
+
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # Memaksa aplikasi Electron (Discord/VSCode) jalan di Wayland
   };
