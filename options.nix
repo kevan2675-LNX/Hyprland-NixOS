@@ -3,14 +3,15 @@ let
   username = "vashlinux";
   hostname = "nixos";
   userHome = "/home/${username}";
-  flakeDir = "${userHome}/vashlinux";
+  flakeDir = "${userHome}/Hyprland-NixOS";
+  repository = "https://github.com/kevan2675-LNX/Hyprsland-NixOS.git";
   proxy = false;
   socks = "1080";
   http = "1090";
 in {
   # User Variables
-  username = username;
-  hostname = hostname;
+  username = "vashlinux";
+  hostname = "nixos";
   gitUsername = "kevan2675-LNX";
   gitEmail = "kevan2675@gmail.com";
   theme = "3024";

@@ -46,7 +46,7 @@ lib.mkIf (theShell == "bash") {
       mitvpn="sudo openfortivpn --config /etc/openfortivpn/config";
       code="flatpak run com.visualstudio.code";
       reboot="killall5 -9 && shutdown -r now";
-      config="cd ~/Lucifers_NIX/";	
+      config="cd ~/Hyprland-NixOS/";	
       lock="swaylock --config ~/.config/swaylock/config"; 
       try="nix-shell -p ";
     };

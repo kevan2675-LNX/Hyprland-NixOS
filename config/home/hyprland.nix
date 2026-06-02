@@ -13,25 +13,27 @@ in with lib; {
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
+
     systemd.enable = true;
     plugins = [
       #pkgs.hyprlandPlugins.hyprtrails
     ];
-
+  
     extraConfig = let
     modifier = "SUPER";
-
     in concatStrings [ ''
+       exec-once = ags
+       
+      xwayland {
+         force_zero_scaling = true;
+    }
+
       monitor=eDP-1,1920x1080,0x0,1.25
       monitor=HDMI-A-1,preferred,auto,1
       monitor=,preferred,auto,1
 
       windowrule = fullscreen, title:^(wlogout)$
       windowrule = animation fade, title:^(wlogout)$
-
-      xwayland {
-          force_zero_scaling = true
-     }
 
       windowrulev2 = opacity 0.8 override 0.8 override,initialClass:^(.*)$
 
