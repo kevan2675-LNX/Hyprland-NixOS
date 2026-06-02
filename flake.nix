@@ -66,7 +66,7 @@
 
   in {
     nixosConfigurations = {
-      "${hostname}" = nixpkgs.lib.nixosSystem {
+      vashlinux = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit inputs; 
