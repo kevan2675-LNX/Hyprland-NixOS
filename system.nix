@@ -1,4 +1,4 @@
-{ config, pkgs, username, hostname, pkgs-unstable, lib, ... }:
+ { config, pkgs, username, hostname, pkgs-unstable, lib, ... }:
 
 let 
   inherit (import ./options.nix) 
@@ -187,7 +187,6 @@ in {
         screen          # Terminal multiplexer (sesi terminal)
         jq              # Tool buat proses data JSON
         tmux            # Alternatif screen yang lebih modern
-        ags
         starship
       ]);
     };
@@ -218,9 +217,7 @@ in {
 
     # Bahan Zsh kamu
     zsh-autosuggestions zsh-completions zsh-syntax-highlighting
-  ]) ++ [
-     pkgs-unstable.ags
-  ];
+  ]);
 
   # ================================================================
   # SERVICES & OPTIMIZATIONS (PENTING BUAT THINKPAD T460)
