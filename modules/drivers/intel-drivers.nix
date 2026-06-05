@@ -12,14 +12,13 @@ in
   };
 
   config = mkIf cfg.enable {
-    # OpenGL
+    # Vulkan
     hardware.graphics = {
       extraPackages = with pkgs; [
-        intel-media-driver
-        vaapiIntel
-        vaapiVdpau
-        libvdpau-va-gl
+        intel-vaapi-driver
+        intel-compute-runtime
       ];
     };
   };
 }
+

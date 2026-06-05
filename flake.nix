@@ -2,61 +2,107 @@
   description = "ZaneyOS";
 
   inputs = {
+    systems.url = "github:nix-systems/default-linux";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager/master";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-   #nvf.url = "github:notashelf/nvf";
-    stylix.url = "github:danth/stylix/release-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
+    };
+    stylix = {
+      url = "github:danth/stylix/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
+    };
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
 
-    # Hypersysinfo  (Optional)
-    #hyprsysteminfo.url = "github:hyprwm/hyprsysteminfo";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    # QuickShell (optional add quickshell to outputs to enable)
-    #quickshell = {
-    #  url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    # Checking nixvim to see if it's better
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
+    };
+
+    # Google Antigravity (IDE)
+    antigravity-nix = {
+      url = "github:jacopone/antigravity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake/beta";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    synfetch = {
+      url = "github:SXSLVT/synfetch";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    waybar = {
+      url = "github:Alexays/Waybar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    {
-      nixpkgs,
-      home-manager,
-      nix-flatpak,
-      ...
-    }@inputs:
-    let
-      system = "x86_64-linux";
-    host = "vash-nixos";
-    profile = "intel";
-      username = "vashlinux";
+  outputs = {
+    nixpkgs,
+    home-manager,
+    nixvim,
+    nix-flatpak,
+    systems,
+    ...
+  } @ inputs: let
+    username = "vashlinux";
+    forAllSystems = nixpkgs.lib.genAttrs (import systems);
+    waybarOverlay = final: prev: {
+      waybar = inputs.waybar.packages.${prev.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
+        mesonFlags = (builtins.filter (flag: (builtins.match "-Dtests=.*" flag) == null) (old.mesonFlags or [])) ++ [
+          "-Dtests=disabled"
+        ];
+        doCheck = false;
+        doInstallCheck = false;
+      });
+    };
 
-      # Deduplicate nixosConfigurations while preserving the top-level 'profile'
-      mkNixosConfig = gpuProfile: nixpkgs.lib.nixosSystem {
-        inherit system;
+    # Deduplicate nixosConfigurations while preserving the top-level 'profile'
+    mkNixosConfig = host:
+      nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
           inherit username;
-          inherit host;
-          inherit profile; # keep using the let-bound profile for modules/scripts
+          host = host;
+          profile = host;
         };
         modules = [
-          ./profiles/${gpuProfile}
-          nix-flatpak.nixosModules.nix-flatpak
+          {
+            nixpkgs.overlays = [ waybarOverlay ];
+          }
+          ./modules/core
+          ./modules/drivers
+          ./hosts/${host}
+         #./profiles
         ];
       };
-    in
-    {
-      nixosConfigurations = {
-        amd = mkNixosConfig "amd";
-        nvidia = mkNixosConfig "nvidia";
-        nvidia-laptop = mkNixosConfig "nvidia-laptop";
-        intel = mkNixosConfig "intel";
-        vm = mkNixosConfig "vm";
-        vash-nixos = mkNixosConfig "intel";
-      };
-    };
+
+    hosts = [
+      "default"
+      "vash-nixos"
+    ];
+  in {
+    nixosConfigurations = builtins.listToAttrs (map (host: {
+        name = host;
+        value = mkNixosConfig host;
+      })
+      hosts);
+
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+  };
 }

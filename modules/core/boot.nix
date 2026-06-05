@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
 {
   boot = {
@@ -19,4 +19,12 @@
     };
     plymouth.enable = true;
   };
+
+   boot.kernelParams = [
+    "i915.enable_guc=0"           # Wajib 0 untuk Skylake! Matikan GuC/HuC karena bikin driver tidak stabil
+    "i915.enable_rc6=1"           # Aktifkan hemat daya GPU standar yang stabil
+    "i915.reset=1"                # JIKA terjadi hang, paksa driver mereset GPU secara instan
+  ];
+    
+
 }

@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }:
 {
@@ -18,7 +19,7 @@
     seahorse.enable = true;
     fuse.userAllowOther = true;
     mtr.enable = true;
-    adb.enable = true;
+   #adb.enable = true;
     hyprlock.enable = true;
     gnupg.agent = {
       enable = true;
@@ -26,7 +27,9 @@
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+  allowUnfree = true;
+  permittedInsecurePackages = ["ciscoPacketTracer8-8.2.2"];
 
   environment.systemPackages = with pkgs; [
     # Hyprland systeminfo QT  (Optional)
@@ -34,7 +37,6 @@
 
     amfora # Fancy Terminal Browser For Gemini Protocol
     appimage-run # Needed For AppImage Support
-    brave # Brave Browser
     brightnessctl # For Screen Brightness Control
     cliphist # Clipboard manager using rofi menu
     cmatrix # Matrix Movie Effect In Terminal
@@ -81,5 +83,19 @@
     warp-terminal # Terminal with AI support build in
     wget # Tool For Fetching Files With Links
     ytmdl # Tool For Downloading Audio From YouTube
+
+    steam
+    goverlay
+    mangohud
+    arduino-ide
+    zed-editor
+
+    dmidecode
+    cava
+    starship
+    cbonsai
   ];
+ };
+ 
 }
+

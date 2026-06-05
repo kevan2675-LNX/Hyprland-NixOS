@@ -1,4 +1,4 @@
- { config, pkgs, username, hostname, pkgs-unstable, lib, ... }:
+{ config, pkgs, username, hostname, pkgs-unstable, lib, ... }:
 
 let 
   inherit (import ./options.nix) 
@@ -101,10 +101,6 @@ in {
 
   programs.hyprland.enable = true;
 
-  #programs.ags = {
-   #  enable = true;
-    # configDir = ./config/home/files/ags;
-  #};
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # Memaksa aplikasi Electron (Discord/VSCode) jalan di Wayland
   };
@@ -187,7 +183,6 @@ in {
         screen          # Terminal multiplexer (sesi terminal)
         jq              # Tool buat proses data JSON
         tmux            # Alternatif screen yang lebih modern
-        starship
       ]);
     };
   };

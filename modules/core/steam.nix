@@ -1,11 +1,18 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   programs = {
     steam = {
-      enable = true;
+      enable = lib.mkForce true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = false;
       gamescopeSession.enable = true;
       extraCompatPackages = [ pkgs.proton-ge-bin ];
+      extraPackages = with pkgs; [
+        mesa
+        vulkan-tools
+        gperftools
+        libunwind
+        libthai
+      ];
     };
 
     gamescope = {

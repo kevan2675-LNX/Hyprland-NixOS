@@ -1,4 +1,4 @@
-{ profile, ... }: {
+{ profile, lib, ... }: {
   # Services to start
   services = {
     libinput.enable = true; # Input Handling
@@ -54,4 +54,41 @@
       };
     };
   };
+
+
+#================================
+#==========SERVICES==============
+#================================
+   # TLP (Battery Setting)
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC="powersave";
+      CPU_SCALING_GOVERNOR_ON_BAT="powersave";
+      CPU_ENERGY_PERF_POLICY_ON_AC="balance_performance"; 
+      CPU_ENERGY_PERF_POLICY_ON_BAT="balance_power";
+      CPU_MAX_PERF_ON_AC=90;
+      CPU_MAX_PERF_ON_BAT=80;
+      CPU_BOOST_ON_AC=1;
+      CPU_BOOST_ON_BAT=0;
+      MEM_SLEEP_ON_AC="deep";
+      MEM_SLEEP_ON_BAT="deep";
+      DISK_APM_LEVEL_ON_AC="254 254";
+      DISK_APM_LEVEL_ON_BAT="128 128";
+      USB_AUTOSUSPEND=1;
+    };
+  };
+
+   # Undervolt
+  services.undervolt = {
+    enable = true;
+    coreOffset = -80;
+    gpuOffset = -50;
+    uncoreOffset = -80;
+    temp = 90;
+  };
+
+ 
+  services.power-profiles-daemon.enable = lib.mkForce false; # W>
+
 }
