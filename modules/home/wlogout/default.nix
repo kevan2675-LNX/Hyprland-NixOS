@@ -32,12 +32,7 @@
         "text" = "Lock";
         "keybind" = "l";
       }
-      {
-        "label" = "hibernate";
-        "action" = "sleep 1; systemctl hibernate";
-        "text" = "Hibernate";
-        "keybind" = "h";
-      }
+
     ];
     style = ''
       * {
@@ -67,34 +62,29 @@
         border: 3px solid #${config.lib.stylix.colors.base0B};
       }
       #logout {
-      	margin: 10px;
+      	margin: 20px;
       	border-radius: 20px;
       	background-image: image(url("icons/logout.png"));
       }
       #suspend {
-      	margin: 10px;
+      	margin: 20px;
       	border-radius: 20px;
       	background-image: image(url("icons/suspend.png"));
       }
       #shutdown {
-      	margin: 10px;
+      	margin: 20px;
       	border-radius: 20px;
       	background-image: image(url("icons/shutdown.png"));
       }
       #reboot {
-      	margin: 10px;
+      	margin: 20px;
       	border-radius: 20px;
       	background-image: image(url("icons/reboot.png"));
       }
       #lock {
-      	margin: 10px;
+      	margin: 20px;
       	border-radius: 20px;
       	background-image: image(url("icons/lock.png"));
-      }
-      #hibernate {
-      	margin: 10px;
-      	border-radius: 20px;
-      	background-image: image(url("icons/hibernate.png"));
       }
     '';
   };
