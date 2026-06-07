@@ -10,7 +10,7 @@
     weztermEnable
     vscodeEnable
     helixEnable
-    doomEmacsEnable
+   #doomEmacsEnable
     antigravityEnable
     ;
   # Select bar module based on barChoice
@@ -21,7 +21,7 @@
 in {
   imports =
     [
-      ./amfora.nix
+     #./amfora.nix
       ./bash.nix
       ./bashrc-personal.nix
       ./overview.nix
@@ -48,12 +48,12 @@ in {
       ./rofi
       ./qt.nix
       ./scripts
-      ./scripts/gemini-cli.nix
+     #./scripts/gemini-cli.nix
       ./stylix.nix
       ./swappy.nix
       ./swaync.nix
       ./tealdeer.nix
-      ./virtmanager.nix
+     #./virtmanager.nix
       barModule
       ./wlogout
       ./xdg.nix
@@ -77,14 +77,14 @@ in {
       then [./editors/antigravity.nix]
       else []
     )
-    ++ (
-      if doomEmacsEnable
-      then [
-        ./editors/doom-emacs-install.nix
-        ./editors/doom-emacs.nix
-      ]
-      else []
-    )
+    #++ (
+      #if doomEmacsEnable
+      #then [
+        #./editors/doom-emacs-install.nix
+        #./editors/doom-emacs.nix
+      #]
+      #else []
+    #)
     ++ (
       if weztermEnable
       then [./terminals/wezterm.nix]
