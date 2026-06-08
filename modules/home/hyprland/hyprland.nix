@@ -186,7 +186,7 @@ in {
         no_hardware_cursors = 2; # change to 1 if want to disable
         enable_hyprcursor = false;
         warp_on_change_workspace = 2;
-        no_warps = true;
+        no_warps = false;
       };
 
       render = {

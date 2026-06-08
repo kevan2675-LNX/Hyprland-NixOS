@@ -431,13 +431,6 @@ _: {
         no_shadow = on
         rounding = 12
       }
-
-      windowrule {
-        name = TF2
-        match:class =^(steam_app_440)$
-        immediate = on
-        fullscreen = on
-      }  
     '';
   };
 }
