@@ -434,7 +434,7 @@ _: {
 
       windowrule {
         name = TF2
-        match:class =^(steam_app_440)$
+        match:class = ^(steam_app_440)$
         immediate = on
         fullscreen = on
       }  

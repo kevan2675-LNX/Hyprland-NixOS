@@ -77,6 +77,10 @@
       DISK_APM_LEVEL_ON_AC="254 254";
       DISK_APM_LEVEL_ON_BAT="128 128";
       USB_AUTOSUSPEND=1;
+      START_CHARGE_THRESH_BAT0=80;
+      STOP_CHARGE_THRESH_BAT0=90;
+      START_CHARGE_THRESH_BAT1=80;
+      STOP_CHARGE_THRESH_BAT1=90;
     };
   };
 
@@ -89,6 +93,7 @@
     temp = 90;
   };
 
-
+  services.udisks2.enable = true;
+  
 
 }
