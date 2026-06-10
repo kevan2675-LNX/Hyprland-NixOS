@@ -9,11 +9,11 @@
   # SDDM background is set with stylixImage
   displayManager = "tui";
 
-  # Emable/disable bundled applications
+  # Enable/disable bundled applications
   tmuxEnable = true;
-  alacrittyEnable = true;
-  weztermEnable = true;
-  ghosttyEnable = true;
+  alacrittyEnable = false;
+  weztermEnable = false;
+  ghosttyEnable = false;
   vscodeEnable = true;
   antigravityEnable = false; # Google port of vscodium
   # Note: This is evil-helix with VIM keybindings by default
