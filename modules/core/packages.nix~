@@ -70,7 +70,6 @@ in {
       mesa-demos # needed for inxi diag util
       tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
       htop # Simple Terminal Based System Monitor
-      eog # For Image Viewing
       inxi # CLI System Information Tool
       killall # For Killing All Instances Of Programs
       libnotify # For Notifications
@@ -91,7 +90,6 @@ in {
       pciutils # Collection Of Tools For Inspecting PCI Devices
       pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
       playerctl # Allows Changing Media Volume Through Scripts
-      rhythmbox # audio player
       ripgrep # Improved Grep
       sqlite # needed for emaacs
       socat # Needed For Screenshots
@@ -99,7 +97,6 @@ in {
       unzip # Tool For Handling .zip Files
       usbutils # Good Tools For USB Devices
       upower # noctalia shell battery
-      uwsm # Universal Wayland Session Manager (optional must be enabled)
       v4l-utils # Used For Things Like OBS Virtual Camera
       waypaper # Change wallpaper
       wget # Tool For Fetching Files With Links

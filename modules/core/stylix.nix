@@ -11,8 +11,9 @@ in {
     image = stylixImage;
     targets.kmscon.enable = false;
     targets.chromium.enable = false;
-    # base16Scheme = {
-    #   base00 = "282936";
+    #targets.console.enable = false;
+    #  base16Scheme = {
+    #   base00 = "0a0a0a";  # background utama ly
     #   base01 = "3a3c4e";
     #   base02 = "4d4f68";
     #   base03 = "626483";
@@ -28,7 +29,7 @@ in {
     #   base0D = "62d6e8";
     #   base0E = "b45bcf";
     #   base0F = "00f769";
-    # };
+    #  };
     polarity = "dark";
     opacity.terminal = 1.0;
     cursor = {

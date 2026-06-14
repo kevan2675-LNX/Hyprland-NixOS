@@ -419,7 +419,7 @@ in
         extra_args=$(parse_nh_args "$@")
 
         echo "Starting NixOS rebuild for host: $(${pkgs.nettools}/bin/hostname)"
-        if eval "${pkgs.nh}/bin/nh os switch --diff always $extra_args"; then
+        if eval "${pkgs.nh}/bin/nh os switch --diff always --hostname '$PROFILE' $extra_args"; then
           echo "Rebuild finished successfully"
         else
           echo "Rebuild Failed" >&2
