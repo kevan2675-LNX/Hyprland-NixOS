@@ -437,6 +437,8 @@ _: {
         match:class = ^(steam_app_440)$
         immediate = on
         fullscreen = on
+        idleinhibit = always
+        xwayland_force_scale = 1
       }  
     '';
   };

@@ -92,6 +92,8 @@ in {
           follow_mouse = 1;
           float_switch_override_focus = 0;
           sensitivity = 0;
+          accel_profile = "flat";
+          force_no_accel = true;x
           touchpad = {
             natural_scroll = true;
             disable_while_typing = true;

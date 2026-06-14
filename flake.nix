@@ -14,18 +14,19 @@
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
      #inputs.nixpkgs.follows = "nixpkgs"; #nixpkgs menjadi read karena ingin memakai binary cache
-    };
 
     #ini binary cache
     nixConfig = {
       extra-substituters = [ "https://noctalia.cachix.org" ];
       extra-trusted-public-keys = [
         "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRg1JzxWPp3dkU4="
-
+    ];
+    };
+    
     # Checking nixvim to see if it's better
     nixvim = {
       url = "github:nix-community/nixvim";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Google Antigravity (IDE)
@@ -54,7 +55,6 @@
     nixvim,
     nix-flatpak,
     alejandra,
-    ...
   } @ inputs: let
     system = "x86_64-linux";
     host = "vash-nixos";
@@ -84,4 +84,7 @@
 
     formatter.x86_64-linux = inputs.alejandra.packages.x86_64-linux.default;
   };
-}
+  };
+
+  }
+
