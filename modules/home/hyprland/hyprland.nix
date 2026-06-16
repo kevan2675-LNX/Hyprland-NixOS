@@ -93,11 +93,11 @@ in {
           float_switch_override_focus = 0;
           sensitivity = 0;
           accel_profile = "flat";
-          force_no_accel = true;
+          force_no_accel = false;
           touchpad = {
             natural_scroll = true;
             disable_while_typing = true;
-            scroll_factor = 0.4;
+            scroll_factor = 0.5;
           };
         }
         // lib.optionalAttrs (hyprKbVariant != "") {kb_variant = hyprKbVariant;};
@@ -166,7 +166,7 @@ in {
         blur = {
           enabled = true;
           size = 5;
-          passes = 3;
+          passes = 1;
           ignore_opacity = false;
           new_optimizations = true;
         };
@@ -185,7 +185,7 @@ in {
 
       cursor = {
         sync_gsettings_theme = true;
-        no_hardware_cursors = 1; # change to 1 if want to disable
+        no_hardware_cursors = 0; # change to 1 if want to disable
         enable_hyprcursor = false;
         warp_on_change_workspace = 0;
         no_warps = true;
@@ -197,6 +197,14 @@ in {
         #explicit_sync_kms = 1;
         direct_scanout = 0;
       };
+
+       device = [
+          {
+           name = "synps/2-sypnaptics-touchpad";
+           sensitivity = 1;
+           accel_profile = "flat";
+          }
+        ];
 
       master = {
         new_status = "slave";

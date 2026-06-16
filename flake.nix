@@ -20,7 +20,9 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell/v4.7.7";
+      url = "github:noctalia-dev/noctalia-shell/v5.0.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.quickshell.follows = "quickshell";
     };
 
     nixvim = {

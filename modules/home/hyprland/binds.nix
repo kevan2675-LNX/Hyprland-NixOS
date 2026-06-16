@@ -7,23 +7,45 @@
     terminal
     ;
   # Noctalia-specific bindings (only included when barChoice == "noctalia")
-  noctaliaBind =
-    if barChoice == "noctalia"
-    then [
-      "$modifier,D, Noctalia Launcher, exec, noctalia-shell ipc call launcher toggle"
-      "$modifier SHIFT,Return, Noctalia Launcher, exec, noctalia-shell ipc call launcher toggle"
-      "$modifier,M, Noctalia Notifications, exec,  noctalia-shell ipc call notifications toggleHistory"
-      "$modifier,V, Noctalia Clipboard, exec,  noctalia-shell ipc call launcher clipboard"
-      "$modifier ALT,P, Noctalia Settings, exec, noctalia-shell ipc call settings toggle"
-      "$modifier SHIFT,comma, Noctalia Settings, exec, noctalia-shell ipc call settings toggle"
-      "$modifier CTRL,L, Noctalia Lock Screen, exec,  noctalia-shell ipc call sessionMenu lockscreen lock"
-      "$modifier SHIFT,W, Noctalia Wallpaper, exec, noctalia-shell ipc call wallpaper toggle"
-      "$modifier,X, Noctalia Power Menu, exec,  noctalia-shell ipc call sessionMenu toggle"
-      "$modifier,C, Noctalia Control Center, exec,  noctalia-shell ipc call controlCenter toggle"
-      "$modifier CTRL,R, Noctalia Screen Recorder, exec,  noctalia-shell ipc call screenRecorder toggle"
-      "$modifier SHIFT,R, Restart Noctalia shell, exec,  restart.noctalia"
-    ]
-    else [];
+ # SEBELUM vs SESUDAH:
+
+noctaliaBind =
+  if barChoice == "noctalia"
+  then [
+    # v4: noctalia-shell ipc call launcher toggle
+    "$modifier,D, Noctalia Launcher, exec, noctalia-ipc toggle-launcher"
+    "$modifier SHIFT,Return, Noctalia Launcher, exec, noctalia-ipc toggle-launcher"
+
+    # v4: noctalia-shell ipc call notifications toggleHistory
+    "$modifier,M, Noctalia Notifications, exec, noctalia-ipc toggle-notifications"
+
+    # v4: noctalia-shell ipc call launcher clipboard
+    "$modifier,V, Noctalia Clipboard, exec, noctalia-ipc toggle-clipboard"
+
+    # v4: noctalia-shell ipc call settings toggle
+    "$modifier ALT,P, Noctalia Settings, exec, noctalia-ipc toggle-settings"
+    "$modifier SHIFT,comma, Noctalia Settings, exec, noctalia-ipc toggle-settings"
+
+    # v4: noctalia-shell ipc call sessionMenu lockscreen lock
+    "$modifier CTRL,L, Noctalia Lock Screen, exec, noctalia-ipc lock"
+
+    # v4: noctalia-shell ipc call wallpaper toggle
+    "$modifier SHIFT,W, Noctalia Wallpaper, exec, noctalia-ipc toggle-wallpaper"
+
+    # v4: noctalia-shell ipc call sessionMenu toggle
+    "$modifier,X, Noctalia Power Menu, exec, noctalia-ipc toggle-session-menu"
+
+    # v4: noctalia-shell ipc call controlCenter toggle
+    "$modifier,C, Noctalia Control Center, exec, noctalia-ipc toggle-control-center"
+
+    # v4: noctalia-shell ipc call screenRecorder toggle
+    "$modifier CTRL,R, Noctalia Screen Recorder, exec, noctalia-ipc toggle-screen-recorder"
+
+    # v4: restart.noctalia
+    "$modifier SHIFT,R, Restart Noctalia, exec, systemctl --user restart noctalia"
+  ]
+  else [];
+    
   # Rofi launcher bindings (only included when barChoice != "noctalia")
   rofiBind =
     if barChoice != "noctalia"
