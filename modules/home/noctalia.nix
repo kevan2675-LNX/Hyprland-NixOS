@@ -1,23 +1,21 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
-}: {
-  imports = [inputs.noctalia.homeModules.default];
+}: let
+  system = pkgs.stdenv.hostPlatform.system;
+  noctaliaPkg = inputs.noctalia.packages.${system}.default;
+in {
+  home.packages = [noctaliaPkg];
 
-  programs.noctalia = {
-    enable = true;
-    package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  # Ensure declarative v5 config directory exists
+  home.activation.ensureNoctaliaConfigDir = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    set -eu
+    DEST="$HOME/.config/noctalia"
 
-    settings = {
-      plugins.colorSchemes = {
-        predefinedScheme = "Catppuccin";
-        darkMode = true;
-      };
-      wallpaper = {
-        enabled = true;
-        directory = "~/Pictures/Wallpapers";
-      };
-    };
-  };
+    if [ ! -d "$DEST" ]; then
+      $DRY_RUN_CMD mkdir -p "$DEST"
+    fi
+  '';
 }
