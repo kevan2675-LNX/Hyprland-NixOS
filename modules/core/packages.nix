@@ -40,7 +40,7 @@ in {
   };
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = ["openssl-1.1.1w"];
+  nixpkgs.config.permittedInsecurePackages = ["openssl-1.1.1w" "cisco_packet_trace_9"];
 
   environment.systemPackages = with pkgs;
     [
@@ -108,5 +108,6 @@ in {
       mangohud
       arduino-ide
       dmidecode
+      ciscoPacketTracer9
     ];
 }

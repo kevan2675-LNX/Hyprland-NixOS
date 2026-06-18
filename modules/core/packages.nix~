@@ -108,5 +108,6 @@ in {
       mangohud
       arduino-ide
       dmidecode
+      ciscoPacketTracer9
     ];
 }
