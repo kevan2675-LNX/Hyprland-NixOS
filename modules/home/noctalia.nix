@@ -30,8 +30,8 @@ in {
     Service = {
       Type = "simple";
       ExecStart = "${noctaliaServiceEntrypoint}";
-      Restart = "on-failure";
-      RestartSec = "1";
+      Restart = "always";
+      RestartSec = "3";
     };
   };
   # Ensure declarative v5 config directory exists

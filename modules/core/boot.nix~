@@ -24,6 +24,8 @@
 
   boot.kernelParams = [
      "i915.enable_guc=3"
+     "i915.enablefbc=1"   #Frame Buffer Compression, hemat VRAM dan sedikit power
+     "i915.enable_psr=2"  #Self Refresh
      "preempt=full"
   ];
 }
