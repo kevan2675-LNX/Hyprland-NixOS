@@ -109,5 +109,6 @@ in {
       arduino-ide
       dmidecode
       ciscoPacketTracer9
+      discord
     ];
 }

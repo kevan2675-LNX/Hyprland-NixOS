@@ -40,6 +40,4 @@
       };
     };
   };
-
-  xdg.configFile."cava/config".force = true;
 }
