@@ -201,7 +201,7 @@ in {
        device = [
           {
            name = "synps/2-sypnaptics-touchpad";
-           sensitivity = -0.1;
+           sensitivity = 1;
            accel_profile = "flat";
           }
         ];

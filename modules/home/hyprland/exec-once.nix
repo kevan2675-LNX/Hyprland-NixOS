@@ -9,7 +9,7 @@
   noctaliaExec =
     if barChoice == "noctalia"
     then [
-       "sh -lc 'sleep 3 && systemctl --user restart noctalia.service || true'"
+       "start.noctalia"
     ]
     else [];
   # Waybar-specific startup commands

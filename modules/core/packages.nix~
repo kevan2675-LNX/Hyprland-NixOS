@@ -109,6 +109,6 @@ in {
       arduino-ide
       dmidecode
       ciscoPacketTracer9
-      vesktop
+      discord
     ];
 }
