@@ -185,7 +185,7 @@ in {
 
       cursor = {
         sync_gsettings_theme = true;
-        no_hardware_cursors = 0; # change to 1 if want to disable
+        no_hardware_cursors = 1; # change to 1 if want to disable
         enable_hyprcursor = false;
         warp_on_change_workspace = 0;
         no_warps = true;

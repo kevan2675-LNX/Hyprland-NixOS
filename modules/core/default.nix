@@ -17,6 +17,7 @@ in {
     ./quickshell.nix
     ./packages.nix
     ./printing.nix
+    ./scroll-debounce.nix
     # Conditionally import the display manager module
     (
       if vars.displayManager == "tui"

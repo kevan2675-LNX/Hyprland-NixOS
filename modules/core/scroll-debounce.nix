@@ -1,0 +1,74 @@
+{ pkgs, ... }:
+let
+  scroll-debounce = pkgs.writers.writePython3Bin "scroll-debounce" {
+    libraries = [ pkgs.python3Packages.evdev ];
+  } ''
+    import evdev
+    from evdev import UInput, ecodes as e
+    import select
+    import time
+
+    DEVICE_PATH = (
+        "/dev/input/by-id/"
+        "usb-Compx_NK_mouse_NANO_dongle-if02-event-mouse"
+    )
+    HOLD_MS = 25
+
+    dev = evdev.InputDevice(DEVICE_PATH)
+    dev.grab()
+    ui = UInput.from_device(dev, name="scroll-debounced-mouse")
+
+    WHEEL_CODES = (e.REL_WHEEL, e.REL_WHEEL_HI_RES)
+    held = None
+
+
+    def fwd(ev):
+        ui.write_event(ev)
+        ui.syn()
+
+
+    while True:
+        if held is not None:
+            timeout = max(0.0, held[1] - time.time())
+        else:
+            timeout = None
+
+        r, _, _ = select.select([dev.fd], [], [], timeout)
+
+        if not r:
+            fwd(held[0])
+            held = None
+            continue
+
+        for event in dev.read():
+            if event.type == e.EV_REL and event.code in WHEEL_CODES:
+                if held is None:
+                    held = (event, time.time() + HOLD_MS / 1000)
+                else:
+                    held_dir = 1 if held[0].value > 0 else -1
+                    new_dir = 1 if event.value > 0 else -1
+                    if new_dir != held_dir:
+                        held = (event, time.time() + HOLD_MS / 1000)
+                    else:
+                        fwd(held[0])
+                        held = (event, time.time() + HOLD_MS / 1000)
+            else:
+                if held is not None:
+                    fwd(held[0])
+                    held = None
+                fwd(event)
+  '';
+in {
+  environment.systemPackages = [ scroll-debounce ];
+
+  systemd.services.scroll-debounce = {
+    description = "Filter scroll wheel chatter";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "systemd-udevd.service" ];
+    serviceConfig = {
+      ExecStart = "${scroll-debounce}/bin/scroll-debounce";
+      Restart = "always";
+      RestartSec = 2;
+    };
+  };
+}

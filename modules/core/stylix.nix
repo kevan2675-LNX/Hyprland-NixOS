@@ -33,10 +33,14 @@ in {
     polarity = "dark";
     opacity.terminal = 1.0;
     cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
-      size = 24;
-    };
+  package = pkgs.runCommand "custom-cursor" {} ''
+    mkdir -p $out/share/icons
+    cp -r ${../../assets/ArcMidnight-cursors} $out/share/icons/ArcMidnight-cursors
+  '';
+  name = "ArcMidnight-cursors";
+  size = 22;
+};
+
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
@@ -58,4 +62,5 @@ in {
       };
     };
   };
+  
 }

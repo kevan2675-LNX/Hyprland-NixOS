@@ -110,5 +110,8 @@ in {
       dmidecode
       ciscoPacketTracer9
       discord
+      zed-editor
+      wpsoffice
+      keepassxc
     ];
 }

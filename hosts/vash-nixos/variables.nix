@@ -50,7 +50,7 @@
 
   # Host-level default applications (picked up by Home Manager xdg.mimeApps)
   # Uncomment and adjust the .desktop IDs to set per-host defaults.
-  # mimeDefaultApps = {
+   mimeDefaultApps = {
   #   # PDFs
   #   "application/pdf" = ["okular.desktop"];
   #   "application/x-pdf" = ["okular.desktop"];
@@ -59,9 +59,9 @@
   #   "x-scheme-handler/https" = ["google-chrome.desktop"];
   #   "text/html"              = ["google-chrome.desktop"];
   #   # Files
-  #   "inode/directory" = ["thunar.desktop"];      # file manager
-  #   "text/plain"      = ["nvim.desktop"];        # or code.desktop
-  # };
+      "inode/directory" = ["thunar.desktop"];      # file manager
+      "text/plain"      = ["dev.zed.Zed.desktop"];        # or code.desktop
+    };
 
   # Available Options:
   # Kitty, ghostty, wezterm, aalacrity

@@ -284,6 +284,8 @@ _: {
         name = Wants-to-Save
         match:initial_title = (wants to save)
         float = on
+        size = 70% = 60%
+        center = on
       }
 
       windowrule {
@@ -433,10 +435,16 @@ _: {
       }
 
       windowrule {
-        name = TF2
-        match:class = ^(steam_app_440)$
-        immediate = on
-      }  
+        # Pengunci kursor & Performa TF2
+        name = tf2-confine
+        match:class = ^(tf_linux64)$
+        confine_pointer = 1
+        immediate = 1
+      }
+      
+      misc {
+           focus_on_activate = true
+      } 
     '';
   };
 }
