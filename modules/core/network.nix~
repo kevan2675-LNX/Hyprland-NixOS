@@ -11,8 +11,6 @@ in {
     hostId = hostId;
     networkmanager.enable = true;
     timeServers = options.networking.timeServers.default ++ ["pool.ntp.org"];
-    nameservers = ["1.1.1.1" "8.8.8.8"];
-    interfaces."wlp4s0".mtu = 1400;
     firewall = {
       enable = true;
       allowedTCPPorts = [
@@ -28,11 +26,6 @@ in {
         59011
       ];
     };
-  };
-
-  services.resolved = {
-    enable = true;
-    dnssec = "false";
   };
 
   environment.systemPackages = with pkgs; [networkmanagerapplet];

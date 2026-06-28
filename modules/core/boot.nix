@@ -31,4 +31,8 @@
      "i8042.nopnp" 
      "i8042.nomux"
   ];
+
+  boot.loader.systemd-boot.configurationLimit = 10;
+  system.boot.loader.kernelFile = "vmlinuz";
+  
 }

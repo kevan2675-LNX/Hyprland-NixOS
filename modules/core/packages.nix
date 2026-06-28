@@ -62,7 +62,6 @@ in {
       ffmpeg # Terminal Video / Audio Editing
       file-roller # Archive Manager
       fd # find util needed for emacs but good util regardless vs. find
-      gearlever # Manage / run Appimages
       icu # dep for gearlever
       gimp # Great Photo Editor
       gnumake # Needed for emacs
@@ -111,7 +110,7 @@ in {
       ciscoPacketTracer9
       discord
       zed-editor
-      wpsoffice
+      libreoffice-fresh
       keepassxc
     ];
 }
