@@ -77,14 +77,14 @@ in {
       then [./editors/antigravity.nix]
       else []
     )
-    ++ (
-      if doomEmacsEnable
-      then [
-        ./editors/doom-emacs-install.nix
-        ./editors/doom-emacs.nix
-      ]
-      else []
-    )
+    #++ (
+      #if doomEmacsEnable
+      #then [
+        #./editors/doom-emacs-install.nix
+        #./editors/doom-emacs.nix
+      #]
+      #else []
+    #)
     ++ (
       if weztermEnable
       then [./terminals/wezterm.nix]

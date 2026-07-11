@@ -150,8 +150,6 @@ in {
         "ALT,Tab, Cycle Next Window, cyclenext"
         "ALT,Tab, Bring Active To Top, bringactivetotop"
         # ============= MEDIA & HARDWARE CONTROLS =============
-        ",XF86AudioRaiseVolume, Volume Up, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume, Volume Down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         " ,XF86AudioMute, Mute Toggle, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioPlay, Play Pause, exec, playerctl play-pause"
         ",XF86AudioPause, Play Pause, exec, playerctl play-pause"
@@ -165,5 +163,11 @@ in {
       "$modifier, mouse:272, movewindow"
       "$modifier, mouse:273, resizewindow"
     ];
+
+     bindde = [
+       ",XF86AudioRaiseVolume, Volume Up, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 2%+"
+       ",XF86AudioLowerVolume, Volume Down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+    ];
+    
   };
 }

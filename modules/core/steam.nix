@@ -12,6 +12,7 @@
            gperftools
            libunwind
            libthai
+           pipewire
       ];
     };
 

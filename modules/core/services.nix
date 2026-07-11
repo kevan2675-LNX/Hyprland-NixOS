@@ -57,6 +57,7 @@
     };
   };
 
+
 #================================
 #==========SERVICES==============
 #================================
@@ -85,6 +86,8 @@
     };
   };
 
+  services.thermald.enable = true;
+
     # Undervolt
   services.undervolt = {
     enable = true;
@@ -101,5 +104,7 @@
      allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
      allowedUDPPortRanges = [ { from = 1714; to = 1764; } ];
   };
+
+  security.rtkit.enable = true;
 
 }

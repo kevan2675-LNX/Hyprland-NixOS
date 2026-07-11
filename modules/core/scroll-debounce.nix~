@@ -21,9 +21,11 @@ let
     WHEEL_CODES = (e.REL_WHEEL, e.REL_WHEEL_HI_RES)
     held = None
 
+
     def fwd(ev):
         ui.write_event(ev)
         ui.syn()
+
 
     while True:
         if held is not None:

@@ -51,7 +51,7 @@ in {
     ++ [
       alejandra # nix formatter
       appimage-run # Needed For AppImage Support
-      brave # Brave Browser
+     #brave # Brave Browser
       brightnessctl # For Screen Brightness Control
       cliphist # Clipboard manager using rofi menu
       cmatrix # Matrix Movie Effect In Terminal
@@ -112,5 +112,6 @@ in {
       zed-editor
       libreoffice-fresh
       keepassxc
+      zen
     ];
 }

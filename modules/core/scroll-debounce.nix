@@ -65,6 +65,8 @@ in {
     description = "Filter scroll wheel chatter";
     wantedBy = [ "multi-user.target" ];
     after = [ "systemd-udevd.service" ];
+    
+    unitConfig.ConditionPathExists = "/dev/input/by-id/usb-Compx_NK_mouse_NANO_dongle-if02-event-mouse";
     serviceConfig = {
       ExecStart = "${scroll-debounce}/bin/scroll-debounce";
       Restart = "always";

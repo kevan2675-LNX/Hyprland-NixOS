@@ -61,7 +61,7 @@
   #   # Files
       "inode/directory" = ["thunar.desktop"];      # file manager
       "text/plain"      = ["dev.zed.Zed.desktop"];        # or code.desktop
-  # };
+    };
 
   # Available Options:
   # Kitty, ghostty, wezterm, aalacrity
