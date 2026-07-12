@@ -112,6 +112,5 @@ in {
       zed-editor
       libreoffice-fresh
       keepassxc
-      zen
     ];
 }

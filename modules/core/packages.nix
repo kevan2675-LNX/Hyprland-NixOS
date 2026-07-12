@@ -112,6 +112,6 @@ in {
       zed-editor
       libreoffice-fresh
       keepassxc
-      zen
+      inputs.zen-browser.packages.${pkgs.system}.default
     ];
 }
