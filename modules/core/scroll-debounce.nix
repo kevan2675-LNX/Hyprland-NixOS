@@ -5,58 +5,38 @@ let
   } ''
     import evdev
     from evdev import UInput, ecodes as e
-    import select
     import time
 
     DEVICE_PATH = (
         "/dev/input/by-id/"
         "usb-Compx_NK_mouse_NANO_dongle-if02-event-mouse"
     )
-    HOLD_MS = 25
+
+    DEBOUNCE_WINDOW = 0.08
 
     dev = evdev.InputDevice(DEVICE_PATH)
     dev.grab()
     ui = UInput.from_device(dev, name="scroll-debounced-mouse")
 
     WHEEL_CODES = (e.REL_WHEEL, e.REL_WHEEL_HI_RES)
-    held = None
 
+    last_dir = 0
+    last_time = 0.0
 
-    def fwd(ev):
-        ui.write_event(ev)
+    for event in dev.read_loop():
+        if event.type == e.EV_REL and event.code in WHEEL_CODES:
+            current_time = time.time()
+            current_dir = 1 if event.value > 0 else -1
+
+            if last_dir != 0 and current_dir != last_dir:
+                if (current_time - last_time) < DEBOUNCE_WINDOW:
+                    continue
+
+            last_dir = current_dir
+            last_time = current_time
+
+        ui.write_event(event)
         ui.syn()
-
-
-    while True:
-        if held is not None:
-            timeout = max(0.0, held[1] - time.time())
-        else:
-            timeout = None
-
-        r, _, _ = select.select([dev.fd], [], [], timeout)
-
-        if not r:
-            fwd(held[0])
-            held = None
-            continue
-
-        for event in dev.read():
-            if event.type == e.EV_REL and event.code in WHEEL_CODES:
-                if held is None:
-                    held = (event, time.time() + HOLD_MS / 1000)
-                else:
-                    held_dir = 1 if held[0].value > 0 else -1
-                    new_dir = 1 if event.value > 0 else -1
-                    if new_dir != held_dir:
-                        held = (event, time.time() + HOLD_MS / 1000)
-                    else:
-                        fwd(held[0])
-                        held = (event, time.time() + HOLD_MS / 1000)
-            else:
-                if held is not None:
-                    fwd(held[0])
-                    held = None
-                fwd(event)
   '';
 in {
   environment.systemPackages = [ scroll-debounce ];
@@ -71,6 +51,7 @@ in {
       ExecStart = "${scroll-debounce}/bin/scroll-debounce";
       Restart = "always";
       RestartSec = 2;
+      User = "root";
     };
   };
 }

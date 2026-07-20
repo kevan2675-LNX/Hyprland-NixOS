@@ -55,9 +55,9 @@
   #   "application/pdf" = ["okular.desktop"];
   #   "application/x-pdf" = ["okular.desktop"];
   #   # Web browser
-     "x-scheme-handler/http"  = ["zen.desktop"];  # or brave-browser.desktop, firefox.desktop
-     "x-scheme-handler/https" = ["zen.desktop"];
-     "text/html"              = ["zen.desktop"];
+     "x-scheme-handler/http"  = ["zen-beta.desktop"];  # or brave-browser.desktop, firefox.desktop
+     "x-scheme-handler/https" = ["zen-beta.desktop"];
+     "text/html"              = ["zen-beta.desktop"];
   #   # Files
       "inode/directory" = ["thunar.desktop"];      # file manager
       "text/plain"      = ["dev.zed.Zed.desktop"];        # or code.desktop

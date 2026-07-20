@@ -13,6 +13,9 @@
            libunwind
            libthai
            pipewire
+           libpulseaudio
+           alsa-lib
+           alsa-plugins
       ];
     };
 

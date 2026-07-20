@@ -14,6 +14,8 @@ in {
   config = mkIf cfg.enable {
     # Vulkan
     hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
       extraPackages = with pkgs; [
         intel-compute-runtime
         mesa
