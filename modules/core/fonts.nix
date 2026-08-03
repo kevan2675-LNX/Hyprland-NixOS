@@ -29,6 +29,7 @@
       roboto-mono
       symbola
       terminus_font
+      corefonts
     ];
   };
 }

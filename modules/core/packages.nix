@@ -114,4 +114,6 @@ in {
       keepassxc
       inputs.zen-browser.packages.${pkgs.system}.default
     ];
+
+     virtualisation.vmware.host.enable = true;
 }
