@@ -61,6 +61,14 @@
   #   # Files
       "inode/directory" = ["thunar.desktop"];      # file manager
       "text/plain"      = ["dev.zed.Zed.desktop"];        # or code.desktop
+      "image/png"       = ["org.gnome.Loupe.desktop"];
+      "image/jpeg"      = ["org.gnome.Loupe.desktop"];
+      "image/webp"      = ["org.gnome.Loupe.desktop"];
+      "image/gif"       = ["org.gnome.Loupe.desktop"];
+      "video/mp4"        = ["celluloid.desktop"];
+      "video/x-matroska" = ["celluloid.desktop"];
+      "video/webm"       = ["celluloid.desktop"];
+
     };
 
   # Available Options:

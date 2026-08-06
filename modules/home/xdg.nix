@@ -26,7 +26,6 @@ in {
       #   "text/plain" = ["nvim.desktop"];             # or code.desktop, org.gnome.TextEditor.desktop
       #
       #   # Images and video
-      #   "image/png" = ["imv.desktop"];               # or org.gnome.eog.desktop
       #   "video/mp4" = ["mpv.desktop"];               # or vlc.desktop
       #
       #   # Archives
@@ -40,6 +39,14 @@ in {
       enable = true;
       extraPortals = [pkgs.xdg-desktop-portal-hyprland];
       configPackages = [pkgs.hyprland];
+    
+
+  config = {
+    common = {
+      default = [ "gtk" ];
     };
   };
+};
+};
+
 }

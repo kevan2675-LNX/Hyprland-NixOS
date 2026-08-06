@@ -17,10 +17,11 @@ in {
     opacity.terminal = 1.0;
     cursor = {
   package = pkgs.runCommand "custom-cursor" {} ''
+    export HOME=$(mktemp -d)
     mkdir -p $out/share/icons
-    cp -r ${../../assets/ArcMidnight-cursors} $out/share/icons/ArcMidnight-cursors
+    cp -r ${../../assets/eram-cursor-linux} $out/share/icons/eram-cursor-linux 
   '';
-  name = "ArcMidnight-cursors";
+  name = "eram-cursor-linux";
   size = 22;
 };
 

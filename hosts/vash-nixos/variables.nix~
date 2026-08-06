@@ -55,12 +55,20 @@
   #   "application/pdf" = ["okular.desktop"];
   #   "application/x-pdf" = ["okular.desktop"];
   #   # Web browser
-     "x-scheme-handler/http"  = ["app.zen_browser.zen.desktop"];  # or brave-browser.desktop, firefox.desktop
-     "x-scheme-handler/https" = ["app.zen_browser.zen.desktop"];
-     "text/html"              = ["app.zen_browser.zen.desktop"];
+     "x-scheme-handler/http"  = ["zen-beta.desktop"];  # or brave-browser.desktop, firefox.desktop
+     "x-scheme-handler/https" = ["zen-beta.desktop"];
+     "text/html"              = ["zen-beta.desktop"];
   #   # Files
       "inode/directory" = ["thunar.desktop"];      # file manager
       "text/plain"      = ["dev.zed.Zed.desktop"];        # or code.desktop
+      "image/png"        = ["loupe.desktop"];
+      "image/jpeg"       = ["loupe.desktop"];
+      "image/webp"       = ["loupe.desktop"];
+      "image/gif"        = ["loupe.desktop"];
+      "video/mp4"        = ["celluloid.desktop"];
+      "video/x-matroska" = ["celluloid.desktop"];
+      "video/webm"       = ["celluloid.desktop"];
+
     };
 
   # Available Options:

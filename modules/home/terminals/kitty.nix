@@ -10,6 +10,7 @@
     # Upstream test failures resolved; use default kitty package (>= 0.44).
     package = pkgs.kitty;
     settings = {
+      themeFile = "Mathias";
       font_family = "Maple Mono NF";
       font_size = 12;
       wheel_scroll_min_lines = 1;
@@ -44,8 +45,8 @@
       #detect_urls yes
 
         # Clipboard
-        map ctrl+shift+v        paste_from_selection
-        map shift+insert        paste_from_selection
+        map ctrl+shift+v        paste_from_clipboard
+        map shift+insert        paste_from_clipboard
 
         # Scrolling
         map ctrl+shift+up        scroll_line_up

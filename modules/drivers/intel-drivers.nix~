@@ -20,9 +20,11 @@ in {
         intel-compute-runtime
         mesa
         intel-media-driver
+        vaapiIntel
       ];
     extraPackages32 = with pkgs.pkgsi686Linux; [
       intel-media-driver
-    };
+    ];
+   };
   };
 }

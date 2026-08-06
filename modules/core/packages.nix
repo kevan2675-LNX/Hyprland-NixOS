@@ -113,7 +113,12 @@ in {
       libreoffice-fresh
       keepassxc
       inputs.zen-browser.packages.${pkgs.system}.default
+      loupe
+      celluloid
+      gpu-screen-recorder-gtk
+      cameractrls 
     ];
 
      virtualisation.vmware.host.enable = true;
+     programs.gpu-screen-recorder.enable = true;
 }
