@@ -116,9 +116,10 @@ in {
       loupe
       celluloid
       gpu-screen-recorder-gtk
-      cameractrls-gtk  
+      cameractrls 
+      bottles
+      pkgs.shotcut
     ];
 
-     virtualisation.vmware.host.enable = true;
-     programs.gpu-screen-recorder.enable = true;
+     programs.gpu-screen-recorder.enable = true;     
 }

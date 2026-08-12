@@ -12,7 +12,7 @@
     };
 
     virtualbox.host = {
-      enable = false;
+      enable = true;
       enableExtensionPack = true;
     };
   };
@@ -26,4 +26,18 @@
     lazydocker
     docker-client
   ];
+
+   virtualisation.vmware.host.enable = true;
+ 
+   users.users.vashlinux = {
+   isNormalUser = true;
+   extraGroups = [ "wheel" "networkmanager" "audio" "vboxusers" ];
+  };
+
+  #For NiXOS Permission Interfaces Host-Ony
+  networking.interfaces.vboxnet0.ipv4.addresses = [ {
+  address = "192.168.56.1";
+  prefixLength = 24;
+  } ];
+ 
 }

@@ -42,11 +42,10 @@ in {
     
 
   config = {
-    common = {
-      default = [ "gtk" ];
+    common.default = ["hyprland" "gtk"];
+      hyprland.default = ["hyprland" "gtk"];
     };
   };
-};
 };
 
 }

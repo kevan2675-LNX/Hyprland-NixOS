@@ -110,12 +110,27 @@ in {
       ciscoPacketTracer9
       discord
       zed-editor
+      libreoffice-fresh
       keepassxc
       inputs.zen-browser.packages.${pkgs.system}.default
       loupe
       celluloid
+      gpu-screen-recorder-gtk
+      cameractrls 
       bottles
       pkgs.shotcut
     ];
-    
+
+     virtualisation.vmware.host.enable = true;
+     programs.gpu-screen-recorder.enable = true;
+
+     users.users.vashlinux = {  
+  isNormalUser = true;
+  extraGroups = [ "wheel" "networkmanager" "audio" "vboxusers" ]; 
+};
+
+
+    virtualisation.virtualbox.host.enable = true;
+
+     
 }
