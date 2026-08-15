@@ -61,6 +61,7 @@ in {
       ./zen-browser.nix
       ./zoxide.nix
       ./zsh
+      ./caelestia.nix
     ]
     ++ (
       if helixEnable
