@@ -15,12 +15,24 @@
     ${pkgs.procps}/bin/pkill -x swaync 2>/dev/null || true
     ${pkgs.procps}/bin/pkill -x noctalia 2>/dev/null || true
     ${pkgs.procps}/bin/pkill -f noctalia-shell 2>/dev/null || true
+    ${pkgs.procps}/bin/pkill -f caelestia-shell 2>/dev/null || true
     ${pkgs.coreutils}/bin/sleep 0.4
 
     exec ${noctaliaPkg}/bin/noctalia
   '';
 in {
-  home.packages = [noctaliaPkg];
+  home.packages = [
+    noctaliaPkg
+    (pkgs.writeShellScriptBin "toggle-shell" ''
+      if systemctl --user is-active --quiet noctalia; then
+         systemctl --user stop noctalia
+         systemctl --user start caelestia
+       else
+         systemctl --user stop caelestia
+         systemctl --user start noctalia
+       fi
+      '')
+  ];
   systemd.user.services.noctalia = {
     Unit = {
       Description = "Noctalia panel service";

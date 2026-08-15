@@ -83,6 +83,15 @@
       STOP_CHARGE_THRESH_BAT0=90;
       START_CHARGE_THRESH_BAT1=80;
       STOP_CHARGE_THRESH_BAT1=90;
+  
+      PCIE_ASPM_ON_AC = "performance";   
+      PCIE_ASPM_ON_BAT = "powersupersave";
+      WIFI_PWR_ON_AC = "off";
+      WIFI_PWR_ON_BAT = "on";
+      SATA_LINKPWR_ON_AC = "max_performance";
+      SATA_LINKPWR_ON_BAT = "min_power";
+      RUNTIME_PM_ON_AC = "on";           # jamin gak ada PCI device di-runtime-suspend pas AC
+      RUNTIME_PM_ON_BAT = "auto";
     };
   };
 
@@ -107,4 +116,9 @@
 
   security.rtkit.enable = true;
 
+  programs.gamemode.settings = {
+    general.renice = 10;
+    general.inhibit_screensaver = 1;
+  };
+  
 }

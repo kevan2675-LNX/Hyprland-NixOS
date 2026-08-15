@@ -32,6 +32,6 @@
      "i8042.nomux"
   ];
 
-  boot.loader.systemd-boot.configurationLimit = 10;
+  boot.loader.systemd-boot.configurationLimit = 3;
   
 }

@@ -22,6 +22,7 @@
       "$modifier,C, Noctalia Control Center, exec, noctalia msg panel-toggle control-center"
       "$modifier CTRL,R, Noctalia Screenshot Region, exec, noctalia msg screenshot-region"
       "$modifier SHIFT,R, Restart Noctalia shell, exec, restart.noctalia"
+      "$modifier,F1, Toggle Shell, exec, toggle-shell"
     ]
     else [];
   # Rofi launcher bindings (only included when barChoice != "noctalia")
