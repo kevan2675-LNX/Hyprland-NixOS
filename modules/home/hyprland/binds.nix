@@ -170,8 +170,8 @@ in {
        " ,XF86AudioMute, Mute Toggle, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
        ",XF86AudioRaiseVolume, Volume Up, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 2%+"
        ",XF86AudioLowerVolume, Volume Down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
-       ",XF86MonBrightnessDown, Brightness Down, exec, caelestia-cli brightness 2%-"
-       ",XF86MonBrightnessUp, Brightness Up, exec, caelestia-cli brightness +2%"
+       ",XF86MonBrightnessDown, Brightness Down, global, caelestia:brightnessDown 2%-"
+       ",XF86MonBrightnessUp, Brightness Up, global, caelestia:brightnessUp +2%"
        
     ];
 
