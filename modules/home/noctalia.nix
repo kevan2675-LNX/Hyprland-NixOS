@@ -32,6 +32,13 @@ in {
          systemctl --user start noctalia
        fi
       '')
+  (pkgs.writeShellScriptBin "smart-terminal" ''
+    if systemctl --user is-active --quiet caelestia; then
+      exec foot
+    else
+      exec kitty
+    fi
+    '')
   ];
   systemd.user.services.noctalia = {
     Unit = {

@@ -1,6 +1,7 @@
 {pkgs, inputs, lib, ...}: let
   system = pkgs.stdenv.hostPlatform.system;
   caelestiaPkg = inputs.caelestia.packages.${system}.with-cli;
+  hyprmodPkg = inputs.hyprmod.packages.${system}.default;
   caelestiaEntrypoint = pkgs.writeShellScript "caelestia-entrypoint" ''
     set -euo pipefail
     ${pkgs.procps}/bin/pkill -f noctalia-shell 2>/dev/null || true
@@ -8,27 +9,18 @@
     exec ${caelestiaPkg}/bin/caelestia-shell
   '';
 in {
-  home.packages = with pkgs; [
-  caelestiaPkg
-  gtk4
-  libadwaita
-  python3
-  uv
-  pipx
-  glib.bin
-  ninja
-  pkg-config
-  cairo
-  cairo.dev
-  gcc
-  gobject-introspection
-  gobject-introspection.dev
+  home.packages = [
+    caelestiaPkg
+    hyprmodPkg
+    (pkgs.writeShellScriptBin "hyprmod-caelestia" ''
+      if systemctl --user is-active --quiet caelestia; then
+        exec ${hyprmodPkg}/bin/hyprmod
+      else
+        ${pkgs.libnotify}/bin/notify-send "HyprMod" "Moving to Caelestia (Super+F1)"
+      fi
+    '')
   ];
 
-  home.sessionVariables = {
-    PKG_CONFIG_PATH = "${pkgs.cairo.dev}/lib/pkgconfig:${pkgs.gobject-introspection.dev}/lib/pkgconfig";
-  };
-  
   systemd.user.services.caelestia = {
     Unit.Description = "Caelestia shell";
     Service = {
@@ -38,6 +30,16 @@ in {
     };
   };
 
+  # HyprMod nulis config-nya sendiri ke sini — pastiin file-nya ada sebelum di-source
+  home.activation.ensureHyprmodGuiConf = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    set -eu
+    FILE="$HOME/.config/hypr/hyprland-gui.conf"
+    if [ ! -f "$FILE" ]; then
+      mkdir -p "$(dirname "$FILE")"
+      $DRY_RUN_CMD touch "$FILE"
+    fi
+  '';
+
   programs.foot = {
     enable = true;
     settings = {
@@ -45,9 +47,7 @@ in {
         term = "xterm-256color";
         font = lib.mkForce "JetBrains Mono:size=10";
       };
-      colors = {
-        alpha = lib.mkForce 0.8;
-      };
+      colors.alpha = lib.mkForce 0.8;
     };
   };
 }
