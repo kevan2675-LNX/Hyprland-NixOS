@@ -5,7 +5,7 @@
     set -euo pipefail
     ${pkgs.procps}/bin/pkill -f noctalia-shell 2>/dev/null || true
     ${pkgs.coreutils}/bin/sleep 0.4
-    exec ${caelestiaPkg}/bin/caelestia
+    exec ${caelestiaPkg}/bin/caelestia-shell
   '';
 in {
   home.packages = [caelestiaPkg];
