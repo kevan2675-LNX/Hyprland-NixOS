@@ -8,7 +8,27 @@
     exec ${caelestiaPkg}/bin/caelestia-shell
   '';
 in {
-  home.packages = [caelestiaPkg];
+  home.packages = with pkgs; [
+  caelestiaPkg
+  gtk4
+  libadwaita
+  python3
+  uv
+  pipx
+  glib.bin
+  ninja
+  pkg-config
+  cairo
+  cairo.dev
+  gcc
+  gobject-introspection
+  gobject-introspection.dev
+  ];
+
+  home.sessionVariables = {
+    PKG_CONFIG_PATH = "${pkgs.cairo.dev}/lib/pkgconfig:${pkgs.gobject-introspection.dev}/lib/pkgconfig";
+  };
+  
   systemd.user.services.caelestia = {
     Unit.Description = "Caelestia shell";
     Service = {
@@ -18,10 +38,17 @@ in {
     };
   };
 
-  gtk = {
-        enable = true;
-        iconTheme.package = lib.mkForce pkgs.papirus-icon-theme;
-        iconTheme.name = lib.mkForce "Papirus-Dark";
+  programs.foot = {
+    enable = true;
+    settings = {
+      main = {
+        term = "xterm-256color";
+        font = lib.mkForce "JetBrains Mono:size=10";
+      };
+      colors = {
+        alpha = lib.mkForce 0.8;
+      };
+    };
   };
 }
   

@@ -116,6 +116,31 @@ in {
       celluloid
       bottles
       pkgs.shotcut
+
+      pkg-config
+      cairo
+      gobject-introspection
+      gobject-introspection.dev
+      gcc
+      pkgs.glib.bin
+      cairo.dev
+      xorg.libxcb
+      xorg.libxcb.dev
+      xorg.libX11
+      xorg.libX11.dev
+      xorg.xorgproto
     ];
+
+    programs.nix-ld.enable = true;
+    programs.nix-ld.libraries = with pkgs; [
+      cairo
+      glib
+      gtk4
+      libadwaita
+      pango
+      pkg-config
+   ];
+
+    programs.gpu-screen-recorder.enable = true;
     
 }

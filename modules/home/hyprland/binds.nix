@@ -6,12 +6,15 @@
     browser
     terminal
     ;
+    
+  selectedTerminal = if barChoice == "caelestia" then "foot" else terminal;
+  
   # Noctalia-specific bindings (only included when barChoice == "noctalia")
   noctaliaBind =
     if barChoice == "noctalia"
     then [
       "$modifier,D, Noctalia Launcher, exec, noctalia msg panel-toggle launcher"
-      "$modifier SHIFT,Return, Noctalia Launcher, exec, noctalia msg panel-toggle launcher"
+     #"$modifier SHIFT,Return, Noctalia Launcher, exec, noctalia msg panel-toggle launcher"
       "$modifier,M, Noctalia Notifications, exec, noctalia msg panel-toggle control-center notifications"
       "$modifier,V, Noctalia Clipboard, exec, noctalia msg panel-toggle clipboard"
       "$modifier ALT,P, Noctalia Settings, exec, noctalia msg settings-toggle"
@@ -51,7 +54,7 @@ in {
         "$modifier CTRL,D, Toggle Dock, exec, dock"
         "$modifier, TAB, QS Overview, exec, qs ipc -c overview call overview toggle"
         # ============= TERMINALS =============
-        "$modifier,Return, Terminal, exec, ${terminal}"
+        "$modifier, Return, Exec terminal, exec, ${selectedTerminal}"
         # ============= APPLICATION LAUNCHERS =============
         "$modifier,K, Keybinds Search Tool, exec, qs-keybinds"
         "$modifier CTRL,C, Cheatsheets Viewer, exec, qs-cheatsheets"
@@ -151,13 +154,11 @@ in {
         "ALT,Tab, Cycle Next Window, cyclenext"
         "ALT,Tab, Bring Active To Top, bringactivetotop"
         # ============= MEDIA & HARDWARE CONTROLS =============
-        " ,XF86AudioMute, Mute Toggle, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioPlay, Play Pause, exec, playerctl play-pause"
         ",XF86AudioPause, Play Pause, exec, playerctl play-pause"
         ",XF86AudioNext, Next Track, exec, playerctl next"
         ",XF86AudioPrev, Previous Track, exec, playerctl previous"
-        ",XF86MonBrightnessDown, Brightness Down, exec, brightnessctl set 5%-"
-        ",XF86MonBrightnessUp, Brightness Up, exec, brightnessctl set +5%"
+        
       ];
 
     bindm = [
@@ -166,9 +167,21 @@ in {
     ];
 
      bindde = [
+       " ,XF86AudioMute, Mute Toggle, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
        ",XF86AudioRaiseVolume, Volume Up, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 2%+"
        ",XF86AudioLowerVolume, Volume Down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+       ",XF86MonBrightnessDown, Brightness Down, exec, caelestia-cli brightness 2%-"
+       ",XF86MonBrightnessUp, Brightness Up, exec, caelestia-cli brightness +2%"
+       
     ];
+
+     exec-once = if (barChoice == "caelestia") then [ 
+       "~/.local/share/hyprmod/hyprmod"
+      ] else [];
+
+     extraConfig = if (barChoice == "caelestia") then ''
+       source = ~/.config/hypr/hyprmod.conf
+     '' else "";
     
   };
 }
