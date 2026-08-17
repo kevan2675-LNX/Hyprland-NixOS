@@ -7,7 +7,8 @@ _: {
     hyprland.enable = false;
     hyprlock.enable = false;
     ghostty.enable = false;
-        foot.enable = false;
+    foot.enable = false;
+    wezterm.enable = false;
     qt = {
       enable = true;
       platform = "qtct";

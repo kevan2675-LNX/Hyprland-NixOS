@@ -34,7 +34,7 @@ in {
       '')
   (pkgs.writeShellScriptBin "smart-terminal" ''
     if systemctl --user is-active --quiet caelestia; then
-      exec foot
+      exec wezterm
     else
       exec kitty
     fi
