@@ -39,6 +39,16 @@ in {
       exec kitty
     fi
     '')
+  (pkgs.writeShellScriptBin "smart-brightness" ''
+      if systemctl --user is-active --quiet caelestia; then
+        case "$1" in
+          up)   hyprctl dispatch global caelestia:brightnessUp ;;
+          down) hyprctl dispatch global caelestia:brightnessDown ;;
+        esac
+      else
+        noctalia msg "brightness-$1"
+      fi
+      '')
   ];
   systemd.user.services.noctalia = {
     Unit = {
