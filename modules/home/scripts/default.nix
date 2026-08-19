@@ -47,6 +47,9 @@
       inherit pkgs profile;
       backupFiles = [
         ".config/mimeapps.list.backup"
+        ".config/gtk-3.0/gtk.css.backup"
+        ".config/gtk-4.0/gtk.css.backup"
+        ".config/hypr/hyprland.conf.backup"
       ];
     })
   ];

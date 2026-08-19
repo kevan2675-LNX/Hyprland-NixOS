@@ -236,4 +236,7 @@ in {
     ";
     
   };
+
+  xdg.configFile."hypr/hyprland.conf".force = true;
+  wayland.windowManager.hyprland.sourceFirst = false;
 }
